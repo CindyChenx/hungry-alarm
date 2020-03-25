@@ -8,6 +8,7 @@ import NewsEvent from "./components/newsevent.customer"
 import LocationMap from "./components/map.customer"
 import Favorite from "./components/favorite.customer"
 import UserSystem from "./components/usersystem.customer"
+import UserLogin from "./components/loginpage.customer"
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
       <Route path = "/location" exact component = {LocationMap} />
       <Route path = "/favorite" exact component = {Favorite} />
       <Route path = "/user" exact component = {UserSystem} />
+      <Route path = "/login" exact component = {UserLogin} />
+      
     </Router>
    
    
