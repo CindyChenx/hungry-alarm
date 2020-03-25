@@ -1,0 +1,13 @@
+var express = require('express');
+//var stormpath = require('express-stormpath');
+var bodyParser = require('body-parser');
+
+var app = express();
+
+
+app.listen(3000, 'localhost', function (err) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log('Listening at http://localhost:3000');
+  });
