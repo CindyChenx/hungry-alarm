@@ -22,7 +22,7 @@ function App() {
       <Route path = "/favorite" exact component = {Favorite} />
       <Route path = "/user" exact component = {UserSystem} />
       <Route path = "/login" exact component = {UserLogin} />
-      <Route path = "/create" exact component = {CreateUser} />
+      <Route path = "/register" exact component = {CreateUser} />
       
     </Router>
    

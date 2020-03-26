@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { register } from './UserFunctions';
 // import {Redirect} from 'react-router-dom';
 
 
@@ -15,8 +16,8 @@ export default class CreateUser extends Component {
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
-            firstName: '',
-            lastName: '',
+            first_name: '',
+            last_name: '',
             email: '',
             phone: '',
             password: '',
@@ -24,13 +25,13 @@ export default class CreateUser extends Component {
     }
     onChangeFirstName(e) {
         this.setState({
-            firstName: e.target.value
+            first_name: e.target.value
         });
     }
 
     onChangeLastName(e) {
         this.setState({
-            lastName: e.target.value
+            last_name: e.target.value
         });
     }
 
@@ -62,14 +63,18 @@ export default class CreateUser extends Component {
         e.preventDefault();
 
         const usersingup = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
             email: this.state.email,
             phone: this.state.phone,
             password: this.state.password,
         }
 
         console.log(usersingup);
+        
+        register(usersingup).then(res => {
+            this.props.history.push('/register')
+        })
 
         //window.location = "/"
 
@@ -77,19 +82,7 @@ export default class CreateUser extends Component {
 
     }
 
-    // signup() {
-    //     if (this.state.username && this.state.password && this.state.email && this.state.name) {
-    //         PostData('signup', this.state).then((result) => {
-    //             let responseJson = result;
-    //             if (responseJson.userData) {
-    //                 sessionStorage.setItem('userData', JSON.stringify(responseJson));
-    //                 this.setState({ redirectToReferrer: true });
-    //             }
-    //             else
-    //                 alert(result.error);
-    //         });
-    //     }
-    // }
+
 
 
 
@@ -102,14 +95,14 @@ export default class CreateUser extends Component {
                     <div className="form-group">
                         <input type="text" className="form-control"
                             placeholder="First name"
-                            value={this.state.firstName}
+                            value={this.state.first_name}
                             onChange={this.onChangeFirstName} />
                     </div>
 
                     <div className="form-group">
                         <input type="text" className="form-control"
                             placeholder="Last name"
-                            value={this.state.lastName}
+                            value={this.state.last_name}
                             onChange={this.onChangeLastName} />
                     </div>
 

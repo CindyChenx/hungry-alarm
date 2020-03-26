@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { login } from './UserFunctions'
 
 
 export default class UserLogin extends Component {
@@ -18,19 +19,7 @@ export default class UserLogin extends Component {
         }
     }
 
-    // login() {
-    //     if (this.state.email && this.state.password) {
-    //         PostData('login', this.state).then((result) => {
-    //             let responseJson = result;
-    //             if (responseJson.userData) {
-    //                 sessionStorage.setItem('userData', JSON.stringify(responseJson));
-    //                 this.setState({ redirectToReferrer: true });
-    //             }
-    //             else
-    //                 alert(result.error);
-    //         });
-    //     }
-    // }
+    
 
     onChangeEmail(e) {
         this.setState({
@@ -54,6 +43,12 @@ export default class UserLogin extends Component {
         }
 
         console.log(userlogin);
+
+        login(userlogin).then(res => {
+            if (res) {
+              this.props.history.push('/login')
+            }
+          })
 
         //window.location = "/"
 

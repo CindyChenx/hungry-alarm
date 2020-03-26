@@ -29,7 +29,7 @@ export default class Navbar extends Component {
                             <Link className="nav-link" href="#" to="/login">Login</Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link" href="#" to="/create">Create user</Link>
+                            <Link className="nav-link" href="#" to="/register">Create user</Link>
                         </li>
                         
                     </ul>
