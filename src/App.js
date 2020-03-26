@@ -9,6 +9,7 @@ import LocationMap from "./components/map.customer"
 import Favorite from "./components/favorite.customer"
 import UserSystem from "./components/usersystem.customer"
 import UserLogin from "./components/loginpage.customer"
+import CreateUser from "./components/createuser.customer"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path = "/favorite" exact component = {Favorite} />
       <Route path = "/user" exact component = {UserSystem} />
       <Route path = "/login" exact component = {UserLogin} />
+      <Route path = "/create" exact component = {CreateUser} />
       
     </Router>
    

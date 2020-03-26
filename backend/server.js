@@ -1,13 +1,21 @@
-var express = require('express');
-//var stormpath = require('express-stormpath');
-var bodyParser = require('body-parser');
+var express = require('express')
+var cors = require('cors')
+var bodyParser = require('body-parser')
+var app = express()
+var port = process.env.PORT || 5000
 
-var app = express();
+app.use(bodyParser.json())
+app.use(cors())
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+)
 
+var Users = require('./routes/Users')
 
-app.listen(3000, 'localhost', function (err) {
-    if (err) {
-      return console.error(err);
-    }
-    console.log('Listening at http://localhost:3000');
-  });
+app.use('/users', Users)
+
+app.listen(port, function() {
+  console.log('Server is running on port: ' + port)
+})
