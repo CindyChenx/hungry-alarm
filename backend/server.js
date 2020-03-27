@@ -13,8 +13,10 @@ app.use(
 )
 
 var Users = require('./routes/Users')
+var Restaurant = require('./routes/Restaurants')
 
 app.use('/users', Users)
+app.use('/restaurants',Restaurant)
 
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
