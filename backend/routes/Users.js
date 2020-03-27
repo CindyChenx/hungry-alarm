@@ -25,8 +25,8 @@ users.post('/register', (req, res) => {
       email: req.body.email
     }
   })
-    //TODO bcrypt
     .then(user => {
+      //see if the user is already created, if not then User.create
       if (!user) {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           userData.password = hash
@@ -68,9 +68,10 @@ users.post('/login', (req, res) => {
     .catch(err => {
       res.status(400).json({ error: err })
     })
+    
 })
 
-users.get('/profile', (req, res) => {
+users.get('/', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
   User.findOne({

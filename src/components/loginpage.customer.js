@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { login } from './UserFunctions'
 
 
@@ -50,7 +49,7 @@ export default class UserLogin extends Component {
             }
           })
 
-        //window.location = "/"
+        window.location = "/user";
 
         //  TODO : send data to the database
 
