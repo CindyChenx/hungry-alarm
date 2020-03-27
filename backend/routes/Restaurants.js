@@ -3,6 +3,7 @@ const users = express.Router()
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const Connection = require('../database/dbsql')
 
 const User = require('../models/Restaurant')
 users.use(cors())
@@ -72,7 +73,7 @@ users.post('/login', (req, res) => {
     })
 })
 
-users.get('/profile', (req, res) => {
+users.get('/user', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
   User.findOne({
@@ -91,5 +92,13 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
+
+users.get('/eventdispaly',(req, res) => {
+    Connection.query('SELECT * From restaurants', function(err,data){
+      (err)?res.send(err):res.json({users: data})
+    })
+})
+
+
 
 module.exports = users

@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize')
-const db = require('../database/dbr.js')
+const db = require('../database/db.js')
 
 module.exports = db.sequelize.define(
-    'user',
+    'restaurant',
     {
         rid: {
             type: Sequelize.INTEGER,

@@ -1,6 +1,7 @@
 var express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
+const mysql = require('mysql');
 var app = express()
 var port = process.env.PORT || 5000
 
@@ -14,10 +15,11 @@ app.use(
 
 var Users = require('./routes/Users')
 var Restaurant = require('./routes/Restaurants')
+var event
 
 app.use('/users', Users)
-app.use('/restaurants',Restaurant)
+app.use('/restaurants', Restaurant)
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log('Server is running on port: ' + port)
 })
