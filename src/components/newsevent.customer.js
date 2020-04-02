@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Card from './RestaurantCard';
 
-
-
 export default class NewsEvent extends Component {
 
     constructor(props) {

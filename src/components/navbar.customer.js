@@ -1,44 +1,87 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
+    logOut(e) {
+        localStorage.removeItem('usertoken')
+        this.props.history.push('/')
+    }
+
     render() {
+        const loginRegLink = (
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link to="/restaurant" className="nav-link">
+                        Restaurant
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link">
+                        Login
+                </Link>
+                </li>
+            </ul>
+        )
+
+        const userLink = (
+            <ul className="navbar-nav">
+                
+                
+                <li className="nav-item">
+                    <Link to="/location" className="nav-link">
+                        Resturant nearby
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/favorite" className="nav-link">
+                        Favorite
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/profile" className="nav-link">
+                        User
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                        Logout
+                </a>
+                </li>
+            </ul>
+        )
+
+
+
         return (
-            // TODO: the hamberger bar is not working so far
+
             <nav className="navbar navbar-expand-lg navbar-passion bg-light">
                 <a className="navbar-brand" >Hungry alarm</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse justify-contentent-mid-conter" id="navbarSupportedContent">
+
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <Link className="nav-link"  to="/">Local Event</Link>
+                        <li>
+                            <Link to="/" className="nav-link">
+                                Events
+                            </Link>
                         </li>
-                        <li className="nav-item active">
-                            <Link className="nav-link"  to="/location">Resturant Near By</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link className="nav-link"  to="/favorite">Your Favorite</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link className="nav-link" to="/user">System</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
-                        <li className="nav-item active">
-                            <Link className="nav-link"  to="/register">Create user</Link>
-                        </li>
-                        
+
                     </ul>
+                    {localStorage.usertoken ? userLink : loginRegLink}
                 </div>
             </nav>
-
-
-
         );
-
     }
+
+
 }
+export default withRouter(Navbar)

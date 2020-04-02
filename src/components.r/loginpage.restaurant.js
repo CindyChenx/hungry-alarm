@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { login } from './UserFunctions';
+import { login } from './RestaurantFunctions'
 
 
-
-export default class UserLogin extends Component {
+export default class RestaurantLogin extends Component {
 
     constructor(props) {
         super(props);
@@ -13,8 +12,8 @@ export default class UserLogin extends Component {
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
-            email: '',
-            password: '',
+            r_email: '',
+            r_password: '',
             // redirectToReferrer: false,
         }
     }
@@ -23,35 +22,34 @@ export default class UserLogin extends Component {
 
     onChangeEmail(e) {
         this.setState({
-            email: e.target.value
+            r_email: e.target.value
         });
     }
 
     onChangePassword(e) {
         this.setState({
-            password: e.target.value
+            r_password: e.target.value
         });
     }
 
     onSubmit(e) {
         e.preventDefault();
 
-        const userlogin = {
+        const restaurantLogin = {
 
-            email: this.state.email,
-            password: this.state.password,
+            r_email: this.state.r_email,
+            r_password: this.state.r_password,
         }
 
-        console.log(userlogin);
+        console.log(restaurantLogin);
 
-        login(userlogin).then(res => {
+        login(restaurantLogin).then(res => {
             if (res) {
-              this.props.history.push('/profile')
+             // this.props.history.push('/resturant')
             }
           })
 
-
-        //  TODO : send data to the database
+        //window.location = "/user";
 
     }
 
@@ -60,13 +58,13 @@ export default class UserLogin extends Component {
     render() {
         return (
             <div className="container">
-                <h1>User login</h1>
+                <h1>Restaurant login</h1>
                 <form onSubmit={this.onSubmit}>
                     
                     <div className="form-group">
                         <input type="text" className="form-control"
                             placeholder="Email"
-                            value={this.state.email}
+                            value={this.state.r_email}
                             onChange={this.onChangeEmail} />
                     </div>
 
@@ -74,7 +72,7 @@ export default class UserLogin extends Component {
                     <div className="form-group">
                         <input type="password" className="form-control"
                             placeholder="pass word"
-                            value={this.state.password}
+                            value={this.state.r_password}
                             onChange={this.onChangePassword} />
                     </div>
 

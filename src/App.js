@@ -11,6 +11,10 @@ import UserSystem from "./components/usersystem.customer"
 import UserLogin from "./components/loginpage.customer"
 import CreateUser from "./components/createuser.customer"
 
+import RestaurantLogin from "./components.r/loginpage.restaurant"
+import RestaurantProfile from "./components.r/res_system.restaurant"
+
+
 function App() {
   return (
     
@@ -20,9 +24,12 @@ function App() {
       <Route path = "/" exact component = {NewsEvent} />
       <Route path = "/location" exact component = {LocationMap} />
       <Route path = "/favorite" exact component = {Favorite} />
-      <Route path = "/user" exact component = {UserSystem} />
+      <Route path = "/profile" exact component = {UserSystem} />
       <Route path = "/login" exact component = {UserLogin} />
       <Route path = "/register" exact component = {CreateUser} />
+
+      <Route path = "/restaurant" exacg component = {RestaurantLogin}/>
+      <Route path = "/restaurant/profile" exacg component = {RestaurantProfile}/> 
       
     </Router>
    
