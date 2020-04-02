@@ -45,11 +45,11 @@ export default class RestaurantLogin extends Component {
 
         login(restaurantLogin).then(res => {
             if (res) {
-             // this.props.history.push('/resturant')
+              this.props.history.push('/restaurant/profile')
             }
           })
 
-        //window.location = "/user";
+        //window.location = "/restaurant/profile";
 
     }
 

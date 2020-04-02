@@ -13,6 +13,7 @@ import CreateUser from "./components/createuser.customer"
 
 import RestaurantLogin from "./components.r/loginpage.restaurant"
 import RestaurantProfile from "./components.r/res_system.restaurant"
+import CreateRestaurant from "./components.r/createRestaurant.restaurant"
 
 
 function App() {
@@ -28,9 +29,9 @@ function App() {
       <Route path = "/login" exact component = {UserLogin} />
       <Route path = "/register" exact component = {CreateUser} />
 
-      <Route path = "/restaurant" exacg component = {RestaurantLogin}/>
-      <Route path = "/restaurant/profile" exacg component = {RestaurantProfile}/> 
-      
+      <Route path = "/restaurant/login" exact component = {RestaurantLogin}/>
+      <Route path = "/restaurant/profile" exact component = {RestaurantProfile}/> 
+      <Route path = "/restaurant/register" exact component = {CreateRestaurant}/> 
     </Router>
    
    

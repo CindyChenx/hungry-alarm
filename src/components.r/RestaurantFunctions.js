@@ -20,7 +20,7 @@ export const register = newResturant => {
 
 export const login = resturant => {
   return axios
-    .post('restaurants/login', {
+    .post('http://localhost:5000/restaurants/login', {
       r_email: resturant.r_email,
       r_password: resturant.r_password
     })
@@ -33,11 +33,4 @@ export const login = resturant => {
     })
 }
 
-export const getdata  = _ =>{
-  return axios
-    .get('restaurants/').then(resp => {
-
-      console.log(resp.data);
-  });
-}
 

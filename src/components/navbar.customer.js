@@ -7,11 +7,15 @@ class Navbar extends Component {
         this.props.history.push('/')
     }
 
+
+
+
+
     render() {
         const loginRegLink = (
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/restaurant" className="nav-link">
+                    <Link to="/restaurant/login" className="nav-link">
                         Restaurant
                 </Link>
                 </li>
@@ -25,8 +29,8 @@ class Navbar extends Component {
 
         const userLink = (
             <ul className="navbar-nav">
-                
-                
+
+
                 <li className="nav-item">
                     <Link to="/location" className="nav-link">
                         Resturant nearby
@@ -40,6 +44,37 @@ class Navbar extends Component {
                 <li className="nav-item">
                     <Link to="/profile" className="nav-link">
                         User
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                        Logout
+                </a>
+                </li>
+            </ul>
+        )
+        // TODO:add navbar for restaurant
+        const RestaurantLink = (
+            <ul className="navbar-nav">
+
+                <li className="nav-item">
+                    <Link to="/restaurant/profile" className="nav-link">
+                        Profile
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/restaurant/addEvent" className="nav-link">
+                        Create Event
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/restaurant/payment" className="nav-link">
+                        Account
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/restaurant/yourPage" className="nav-link">
+                        view Page
                 </Link>
                 </li>
                 <li className="nav-item">
@@ -77,6 +112,17 @@ class Navbar extends Component {
 
                     </ul>
                     {localStorage.usertoken ? userLink : loginRegLink}
+                    {/* {(() => {
+                        if (localStorage.getItem('usertoken') != null && localStorage.getItem('restauranttoken') == null) {
+                            return userLink
+                        } 
+                        else if (localStorage.getItem('restauranttoken')!= null && localStorage.getItem('usertoken') == null) {
+                            return RestaurantLink
+                        } 
+                        else {
+                            return loginRegLink
+                        }
+                    })()} */}
                 </div>
             </nav>
         );
