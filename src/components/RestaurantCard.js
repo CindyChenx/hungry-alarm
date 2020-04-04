@@ -10,6 +10,7 @@ function RestaurantCard(props) {
                     <h1>{props.user.r_name}</h1>
                     <h6>{props.user.r_phone}</h6>
                     <h6>{props.user.r_address}</h6>  
+                    {/* it might crash when then data is null display can not split null */}
                     <p className="card-text">about:{props.user.r_desciption.split("\n").map(function (item) {
                         return (
                             <span>

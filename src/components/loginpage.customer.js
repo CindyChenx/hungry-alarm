@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { login } from './UserFunctions'
+import { login } from './UserFunctions';
+
 
 
 export default class UserLogin extends Component {
@@ -45,11 +46,10 @@ export default class UserLogin extends Component {
 
         login(userlogin).then(res => {
             if (res) {
-              this.props.history.push('/login')
+              this.props.history.push('/profile')
             }
           })
 
-        window.location = "/user";
 
         //  TODO : send data to the database
 
@@ -60,7 +60,7 @@ export default class UserLogin extends Component {
     render() {
         return (
             <div className="container">
-
+                <h1>User login</h1>
                 <form onSubmit={this.onSubmit}>
                     
                     <div className="form-group">
