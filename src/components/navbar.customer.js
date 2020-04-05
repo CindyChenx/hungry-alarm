@@ -8,9 +8,6 @@ class Navbar extends Component {
     }
 
 
-
-
-
     render() {
         const loginRegLink = (
             <ul className="navbar-nav">
@@ -20,7 +17,7 @@ class Navbar extends Component {
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/login" className="nav-link">
+                    <Link to="/user/login" className="nav-link">
                         Login
                 </Link>
                 </li>
@@ -32,17 +29,17 @@ class Navbar extends Component {
 
 
                 <li className="nav-item">
-                    <Link to="/location" className="nav-link">
+                    <Link to="/user/location" className="nav-link">
                         Resturant nearby
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/favorite" className="nav-link">
+                    <Link to="/user/favorite" className="nav-link">
                         Favorite
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/profile" className="nav-link">
+                    <Link to="/user/profile" className="nav-link">
                         User
                 </Link>
                 </li>
@@ -53,40 +50,7 @@ class Navbar extends Component {
                 </li>
             </ul>
         )
-        // TODO:add navbar for restaurant
-        const RestaurantLink = (
-            <ul className="navbar-nav">
-
-                <li className="nav-item">
-                    <Link to="/restaurant/profile" className="nav-link">
-                        Profile
-                </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/restaurant/addEvent" className="nav-link">
-                        Create Event
-                </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/restaurant/payment" className="nav-link">
-                        Account
-                </Link>
-                </li>
-                <li className="nav-item">
-                    <Link to="/restaurant/yourPage" className="nav-link">
-                        view Page
-                </Link>
-                </li>
-                <li className="nav-item">
-                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-                        Logout
-                </a>
-                </li>
-            </ul>
-        )
-
-
-
+       
         return (
 
             <nav className="navbar navbar-expand-lg navbar-passion bg-light">

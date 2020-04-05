@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const register = newResturant => {
   return axios
-    .post('restaurants/register', {
+    .post('http://localhost:5000/restaurants/register', {
       r_name: newResturant.r_name,
       r_phone: newResturant.r_phone,
       r_email: newResturant.r_email,

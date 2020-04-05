@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { register } from './UserFunctions';
-// import {Redirect} from 'react-router-dom';
+
 
 
 export default class CreateUser extends Component {
@@ -127,7 +127,7 @@ export default class CreateUser extends Component {
                             onChange={this.onChangePassword} />
                     </div>
 
-                    {/* TODO: conform password check */}
+                    {/* TODO:alarm pop up */}
                     <div className="form-group">
                         <input type="password" className="form-control" placeholder="Conform password" />
                     </div>
