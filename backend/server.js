@@ -15,7 +15,7 @@ app.use(
 
 var Users = require('./routes/Users')
 var Restaurant = require('./routes/Restaurants')
-var event
+
 
 app.use('/users', Users)
 app.use('/restaurants', Restaurant)
