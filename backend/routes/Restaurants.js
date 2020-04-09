@@ -66,6 +66,29 @@ users.post('/login', (req, res) => {
           res.send(token)
         }
       } else {
+        res.status(400).json({ error: 'User does not exist' })
+      }
+    })
+    .catch(err => {
+      res.status(400).json({ error: err })
+    })
+})
+
+users.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      r_email: req.body.r_email
+    }
+  })
+    .then(user => {
+      if (user) {
+        if (bcrypt.compareSync(req.body.r_password, user.r_password)) {
+          let token = jwt.sign(user.dataValues, process.env.SECRET_KEY, {
+            expiresIn: 1440
+          })
+          res.send(token)
+        }
+      } else {
         res.status(400).json({ error: 'Restaurant does not exist' })
       }
     })
@@ -73,26 +96,6 @@ users.post('/login', (req, res) => {
       res.status(400).json({ error: err })
     })
     
-})
-
-users.get('/', (req, res) => {
-  var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-
-  User.findOne({
-    where: {
-      id: decoded.id
-    }
-  })
-    .then(user => {
-      if (user) {
-        res.json(user)
-      } else {
-        res.send('Restaurant does not exist')
-      }
-    })
-    .catch(err => {
-      res.send('error: ' + err)
-    })
 })
 
 users.get('/eventdispaly',(req, res) => {

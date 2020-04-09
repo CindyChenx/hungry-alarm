@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import { Link, withRouter } from "react-router-dom";
+
 
 import Navbar from "./components/navbar.customer"
 
@@ -23,21 +23,24 @@ import User from './user'
 //  import RestaurantBalance from "./components.r/accountbalance.restaurant"
 //  import RestaurantPage from "./components.r/yourpage.restaurant"
 
+
+
 function App() {
   return (
-    
-   <Router> 
-   <Navbar />
 
-      <Route path = "/" exact component = {NewsEvent} />
+    <Router>
+    
+      <Navbar />
+  
+      <Route path="/" exact component={NewsEvent} />
       {/* <Route path = "/location"  component = {LocationMap} />
       <Route path = "/favorite"  component = {Favorite} />
       <Route path = "/profile"  component = {UserSystem} />
       <Route path = "/login" component = {UserLogin} />
       <Route path = "/register" component = {CreateUser} /> 
        */}
-      <Route path = "/restaurant" component = {Restaurant} />
-      <Route path = "/user" component = {User} />
+      <Route path="/restaurant" component={Restaurant} />
+      <Route path="/user" component={User} />
 
       {/* <Route path = "/restaurant/login"  component = {RestaurantLogin}/>
       <Route path = "/restaurant/profile"  component = {RestaurantProfile}/> 
@@ -46,10 +49,10 @@ function App() {
       <Route path = "/restaurant/payment" component = {RestaurantBalance}/>
       <Route path = "/restaurant/yourpage" s component = {RestaurantPage}/>  */}
 
-
+      
     </Router>
-   
-   
+
+
   );
 }
 
