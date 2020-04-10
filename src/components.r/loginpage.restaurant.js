@@ -116,7 +116,7 @@ export default class RestaurantLogin extends Component {
                                 onChange={this.onChangePassword} />
                         </div>
                         <div className={style.wrapper}>
-                            <a href="">Create Account</a>
+                            <a href="/restaurant/register">Create Account</a>
                             <p>visit our website to get more information or call our customer service.</p>
 
                             <button className={style.login} align="center" onClick="login()">Login</button>
