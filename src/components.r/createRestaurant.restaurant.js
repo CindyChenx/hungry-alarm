@@ -124,6 +124,12 @@ export default class CreateRestaurant extends Component {
                     </div>
                     <div className="form-group">
                         <input type="text" className="form-control"
+                            placeholder="PassWord"
+                            value={this.state.r_password}
+                            onChange={this.onChangeRPassword}/>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control"
                             placeholder="Restaurant Address"
                             value={this.state.r_address}
                             onChange={this.onChangeRAddress}/>

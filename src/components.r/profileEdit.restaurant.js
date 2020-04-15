@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
 
+
 export default class RestaurantProfileEdit extends Component {
 
 
@@ -46,7 +47,7 @@ export default class RestaurantProfileEdit extends Component {
         })
         // axios.get('http://localhost:5000/restaurants/' + decoded.rid)
         //     .then(response => {
-        //         console.log(response.data.r_desciption);
+        //         console.log(response.params);
         //         this.setState({
         //             r_name: response.data.r_name,
         //             r_phone: response.data.r_phone,
@@ -113,19 +114,21 @@ export default class RestaurantProfileEdit extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-
-        const restaurantSingup = {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        const restaurantEdit = {
+            rid: decoded.rid,
             r_name: this.state.r_name,
             r_phone: this.state.r_phone,
-            r_email: this.state.r_email,
-            r_password: this.state.r_password,
+            r_email: decoded.r_email,
+            r_password: decoded.r_email,
             r_address: this.state.r_address,
             r_zip: this.state.r_zip,
             r_desciption: this.state.r_desciption,
             r_pic: this.state.r_pic
         }
         //console.log(restaurantSingup);
-        axios.post('http://localhost:5000/restaurants/edit/'+ this.state.rid,restaurantSingup)
+        axios.put('http://localhost:5000/restaurants/edit/'+ decoded.rid,restaurantEdit)
         .then(res => console.log(res.data));
 
 
@@ -148,12 +151,6 @@ export default class RestaurantProfileEdit extends Component {
                             placeholder="Phone Number"
                             value={this.state.r_phone}
                             onChange={this.onChangeRPhone} />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control"
-                            placeholder="Email Address"
-                            value={this.state.r_email}
-                            onChange={this.onChangeREmail} />
                     </div>
                     <div className="form-group">
                         <input type="text" className="form-control"
