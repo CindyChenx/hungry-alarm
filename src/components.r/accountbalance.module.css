@@ -1,0 +1,54 @@
+.accountTotal{
+    background-color:#d5f7e2;
+    padding: 4%;
+    padding-bottom: 8%;
+    color: #636161;
+    margin-bottom: 3%;
+}
+
+.balance{
+    text-align:center; 
+    text-decoration: underline;
+}
+
+.accounthistory{
+    padding: 4%;
+    
+}
+
+.paymenttitle{
+    display: inline;
+}
+
+.readmore{
+    position:absolute;
+    right:4%;
+}
+
+/* recent ammount */
+.recentcharge{
+    margin:4%;
+}
+
+.paybutton{
+   width: 100%;
+   margin-top:30px;
+   margin-bottom: 10px; 
+   color: #d5f7e2;
+   background-color:#22A47C;
+   font-size: 20px;
+   border: 1; 
+   border-radius: 8px;
+   padding: 1%;
+}
+
+.changebutton{
+   width: 100%;
+   margin-bottom: 10px; 
+   color: #636161;
+   background-color:#D8D8D8;
+   font-size: 20px;
+   border: 1; 
+   border-radius: 8px;
+   padding: 1%;
+}

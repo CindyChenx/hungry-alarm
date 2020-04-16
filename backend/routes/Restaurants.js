@@ -116,9 +116,17 @@ users.get('/:rid', function (req, res) {
 users.put('/edit/:rid', function (req, res) {
   const updatesql = 'UPDATE `restaurants` SET `r_name`= ? ,`r_phone`= ?,`r_email`= ?,`r_password`=?,`r_address`= ?,`r_zip`=?,`r_desciption`=?,`r_pic`=? WHERE rid = ?'
   const updateparam = [req.body.r_name,req.body.r_phone, req.body.r_email, req.body.r_password,req.body.r_address,req.body.r_zip,req.body.r_desciption,req.body.r_pic,req.body.rid]
+  bcrypt.hash(req.body.r_password,10,(err,hash) => {
+    updateparam.r_password = hash;
+  })
   Connection.query(updatesql,updateparam , function (error, results, fields) {
    if (error) throw error;
-   console.log(results);
+   //still can not hash the password 
+   // might need to try this https://sequelize.org/v5/manual/getting-started
+    bcrypt.hash(req.body.r_password,10,(err,hash) => {
+      updateparam.r_password = hash;
+    })
+   
    
    res.send(JSON.stringify(results));
  });
