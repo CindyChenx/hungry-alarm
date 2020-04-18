@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode'
 import style from "./RestaurantProfile.module.css";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { decode } from 'punycode';
 
 export default class RestaurantProfile extends Component {
 
   constructor() {
-    super()
+    super();
+
     this.state = {
-      rid:'',
+      rid: '',
       r_name: '',
       r_phone: '',
       r_address: '',
       r_zip: '',
       r_desciption: '',
-      r_pic: '', 
+      r_pic: '',
       // errors: {}
     }
   }
@@ -22,15 +25,54 @@ export default class RestaurantProfile extends Component {
   componentDidMount() {
     const token = localStorage.usertoken
     const decoded = jwt_decode(token)
-    this.setState({
-      rid:decoded.rid,
-      r_name: decoded.r_name,
-      r_phone:decoded.r_phone,
-      r_address: decoded.r_address,
-      r_zip:decoded.r_zip,
-      r_desciption:decoded.r_desciption,
-      r_pic:decoded.r_pic
+    axios.get('http://localhost:5000/restaurants/'+ decoded.rid)
+    .then(response =>{
+      this.setState({
+      rid: response.data.rid,
+      r_name: response.data.r_name,
+      r_phone: response.data.r_phone,
+      r_address: response.data.r_address,
+      r_zip: response.data.r_zip,
+      r_desciption: response.data.r_desciption,
+      r_pic: response.data.r_pic
+      })
     })
+
+    // const token = localStorage.usertoken
+    // const decoded = jwt_decode(token)
+    // this.setState({
+    //   rid: decoded.rid,
+    //   r_name: decoded.r_name,
+    //   r_phone: decoded.r_phone,
+    //   r_address: decoded.r_address,
+    //   r_zip: decoded.r_zip,
+    //   r_desciption: decoded.r_desciption,
+    //   r_pic: decoded.r_pic
+    // })
+  }
+  componentDidUpdate(prevProps, props) {
+
+    if (this.props.r_name !== prevProps.r_name ||
+      this.props.r_phone !== prevProps.r_phone ||
+      this.props.r_address !== prevProps.r_address ||
+      this.props.r_zip !== prevProps.r_zip ||
+      this.props.description !== prevProps.r_desciption ||
+      this.props.r_pic != prevProps.r_pic) {
+
+      axios.get('http://localhost:5000/restaurants/' + decode.rid)
+        .then(response => {
+          this.setState({
+            r_name: response.data.r_name,
+            r_phone: response.data.r_phone,
+            r_email: response.data.r_email,
+            r_password: response.data.r_password,
+            r_address: response.data.r_address,
+            r_zip: response.data.r_zip,
+            r_desciption: response.data.r_desciption,
+            r_pic: response.data.r_pic,
+          })
+        })
+    }
   }
 
   render() {
@@ -43,7 +85,7 @@ export default class RestaurantProfile extends Component {
           <table className="table col-md-6 mx-auto">
             <tbody>
               <tr>
-                <td>Restaurant name</td>
+                <td>Restaurant</td>
                 <td>{this.state.r_name}</td>
               </tr>
               <tr>
@@ -71,7 +113,7 @@ export default class RestaurantProfile extends Component {
             <div className={style.rowContainer}>
               <h2 className={style.heading2}>Restaurant Page</h2>
               {/* <button className={style.editButton}>Edit</button> */}
-              <Link className={style.editButton} to={"/restaurant/profileEdit/"+this.state.rid}>Edit</Link>
+              <Link className={style.editButton} to={"/restaurant/profileEdit/" + this.state.rid}>Edit</Link>
             </div>
             <div className={style.basicInfoContainer}>
               <h1 className={style.heading1}>Takeshi Sushi</h1>

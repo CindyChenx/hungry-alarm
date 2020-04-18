@@ -82,7 +82,7 @@ export default class RestaurantLogin extends Component {
 
                     <div className="form-group">
                         <input type="password" className="form-control"
-                            placeholder="pass word"
+                            placeholder="password"
                             value={this.state.r_password}
                             onChange={this.onChangePassword} />
                     </div>

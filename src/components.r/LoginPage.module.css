@@ -51,7 +51,7 @@
 }
 
 .email {
-	width: 70%;
+	width: 100%;
     color: #636161;
     font-weight: 500;
     font-size: 14px;
@@ -68,7 +68,7 @@
 }
 
 .password {
-	width: 70%;
+	width: 100%;
     color: #636161;
     font-weight: 500;
     font-size: 14px;

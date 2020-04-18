@@ -32,39 +32,31 @@ export default class RestaurantProfileEdit extends Component {
     }
 
     componentDidMount() {
+
+        
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
-        this.setState({
-            rid:decoded.rid,
-            r_name: decoded.r_name,
-            r_phone:decoded.r_phone,
-            r_email:decoded.r_email,
-            r_password:decoded.r_password,
-            r_address: decoded.r_address,
-            r_zip:decoded.r_zip,
-            r_desciption:decoded.r_desciption,
-            r_pic:decoded.r_pic
-        })
-        // axios.get('http://localhost:5000/restaurants/' + decoded.rid)
-        //     .then(response => {
-        //         console.log(response.params);
-        //         this.setState({
-        //             r_name: response.data.r_name,
-        //             r_phone: response.data.r_phone,
-        //             r_email: response.data.r_email,
-        //             r_password: response.data.r_password,
-        //             r_address: response.data.r_address,
-        //             r_zip: response.data.r_zip,
-        //             r_desciption: response.data.r_desciption,
-        //             r_pic: response.data.r_pic,
-        //         })
-        //     })
-        //     .catch(function(error){
-        //         console.log(error);
-        //     })
+        
+        axios.get('http://localhost:5000/restaurants/' + decoded.rid)
+            .then(response => {
+                console.log(response.params);
+                this.setState({
+                    r_name: response.data.r_name,
+                    r_phone: response.data.r_phone,
+                    r_email: response.data.r_email,
+                    r_password: response.data.r_password,
+                    r_address: response.data.r_address,
+                    r_zip: response.data.r_zip,
+                    r_desciption: response.data.r_desciption,
+                    r_pic: response.data.r_pic,
+                })
+            })
+            .catch(function(error){
+                console.log(error);
+            })
 
-        //     console.log(this.state.r_name);
     }
+    
 
     onChangeRName(e) {
         this.setState({
@@ -120,8 +112,8 @@ export default class RestaurantProfileEdit extends Component {
             rid: decoded.rid,
             r_name: this.state.r_name,
             r_phone: this.state.r_phone,
-            r_email: decoded.r_email,
-            r_password: decoded.r_email,
+            r_email: this.state.r_email,
+            r_password: this.state.r_password,
             r_address: this.state.r_address,
             r_zip: this.state.r_zip,
             r_desciption: this.state.r_desciption,
@@ -131,7 +123,8 @@ export default class RestaurantProfileEdit extends Component {
         axios.put('http://localhost:5000/restaurants/edit/'+ decoded.rid,restaurantEdit)
         .then(res => console.log(res.data));
 
-
+        //this.props.history.push('/restaurant/profile')
+        window.location = "/restaurant/profile"
 
     }
 
@@ -177,7 +170,7 @@ export default class RestaurantProfileEdit extends Component {
                             onChange={this.onChangeRPic} />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Edit"
+                        <input type="submit" value="save"
                             className="btn btn-primary" />
                     </div>
 
