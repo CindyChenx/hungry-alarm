@@ -1,0 +1,105 @@
+.container {
+	background-color: #D5F7E2;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 20%;
+}
+
+.headerContainer {
+	text-align: center;
+}
+
+.personal {
+	background: #32846B;
+	cursor: pointer;
+    border-top-left-radius: 5em;
+    border-bottom-left-radius: 5em;
+    border-color: white;
+    border-width: 1px;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.restaurant {
+	background: #32846B;
+	cursor: pointer;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    border-color: white;
+    border-width: 1px;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+.loginform {
+	width: 100%;
+}
+
+.information {
+	background-color: #D8D8D8;
+	border-radius: 20px;
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.email {
+	width: 100%;
+    color: #636161;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.password {
+	width: 100%;
+    color: #636161;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.email:focus, .password:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+.wrapper {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.login {
+	background: #32846B;
+	cursor: pointer;
+    border-radius: 5em;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+}

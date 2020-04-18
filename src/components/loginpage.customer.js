@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { login } from './UserFunctions';
-
+import Alert from './layout/alerts';
+import axios from 'axios';
 
 
 export default class UserLogin extends Component {
@@ -15,11 +16,11 @@ export default class UserLogin extends Component {
         this.state = {
             email: '',
             password: '',
-            // redirectToReferrer: false,
+            errorMessage: '',
         }
     }
 
-    
+
 
     onChangeEmail(e) {
         this.setState({
@@ -42,13 +43,25 @@ export default class UserLogin extends Component {
             password: this.state.password,
         }
 
-        console.log(userlogin);
+        axios
+            .post('http://localhost:5000/users/login', userlogin)
+            .then(response => {
+                localStorage.setItem('usertoken', response.data)
+                // return response.data
+                this.props.history.push('/user/profile')
+            })
+            .catch(err => {
+                console.log(err.response.data.error)
+                this.setState({errorMessage:err.response.data.error})
+            })
 
-        login(userlogin).then(res => {
-            if (res) {
-              this.props.history.push('/user/profile')
-            }
-          })
+        //console.log(userlogin);
+
+        // login(userlogin).then(res => {
+        //     if (res) {
+        //       this.props.history.push('/user/profile')
+        //     }
+        //   })
 
 
         //  TODO : send data to the database
@@ -57,12 +70,14 @@ export default class UserLogin extends Component {
 
 
 
+
     render() {
+        const message = this.state.errorMessage
+        const alert = <Alert message={message} onDismiss />
         return (
-            <div className="container">
-                <h1>User login</h1>
-                <form onSubmit={this.onSubmit}>
-                    
+            <div className="container" >
+                <div>{alert}</div>
+                <form onSubmit={this.onSubmit} >
                     <div className="form-group">
                         <input type="text" className="form-control"
                             placeholder="Email"
@@ -78,14 +93,16 @@ export default class UserLogin extends Component {
                             onChange={this.onChangePassword} />
                     </div>
 
+
                     {/* TODO: conform password check */}
-                    
+
                     <div className="form-group">
                         <input type="submit" value="Apply"
                             className="btn btn-primary" />
                     </div>
 
                 </form>
+
             </div>
         );
     }

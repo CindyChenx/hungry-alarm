@@ -124,6 +124,12 @@ export default class CreateRestaurant extends Component {
                     </div>
                     <div className="form-group">
                         <input type="text" className="form-control"
+                            placeholder="Password"
+                            value={this.state.r_password}
+                            onChange={this.onChangeRPassword}/>
+                    </div>
+                    <div className="form-group">
+                        <input type="text" className="form-control"
                             placeholder="Restaurant Address"
                             value={this.state.r_address}
                             onChange={this.onChangeRAddress}/>
@@ -147,7 +153,7 @@ export default class CreateRestaurant extends Component {
                             onChange={this.onChangeRPic}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Apply"
+                        <input type="submit" value="Create"
                             className="btn btn-primary" />
                     </div>
 
