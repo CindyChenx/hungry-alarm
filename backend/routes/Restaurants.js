@@ -65,7 +65,10 @@ users.post('/login', (req, res) => {
           })
           res.send(token)
         }
-      } else {
+      } else if(!user.r_password||!user.r_email){
+        res.status(400).json({ error: 'email or password can not be empty' })
+      } 
+      else {
         res.status(400).json({ error: 'User does not exist' })
       }
     })
@@ -111,7 +114,9 @@ users.get('/:rid', function(req,res,next){
     }
   })
   .then(user =>{
+    
     if(user){
+      
       res.json(user)
     }else{
       res.send('task dose not exist')
@@ -129,7 +134,9 @@ users.get('/:rid', function(req,res,next){
 //  });
 // });
 
-users.put('/edit/:rid',function(req,res,next){
+
+//for reseting the password
+users.put('/edit/passwordsetting/:rid',function(req,res,next){
   
   User.findOne({
     where: {
@@ -165,34 +172,33 @@ users.put('/edit/:rid',function(req,res,next){
 
 
  
-
-// users.put('/edit/:rid',function(req,res,next){
+//update without seting the password
+users.put('/edit/:rid',function(req,res,next){
   
+  if(!req.body.r_email){
+    res.status(400)
+    res.json({
+      error:'error data without email'
+    })
+  }else{
+    User.update(
+      {r_name: req.body.r_name,
+        r_phone: req.body.r_phone,
+        r_email:req.body.r_email,
+        r_password:req.body.r_password,
+        r_address: req.body.r_address,
+        r_zip: req.body.r_zip,
+        r_desciption: req.body.r_desciption,
+        r_pic: req.body.r_pic},
+        {where:{rid:req.params.rid}}
+    )
+    .then(()=>{
+      res.json({status:'Restaurant successful updated'})
+    })
+    .error(err => handleError(err))
+  }
   
-//   if(!req.body.r_email){
-//     res.status(400)
-//     res.json({
-//       error:'error data without email'
-//     })
-//   }else{
-//     User.update(
-//       {r_name: req.body.r_name,
-//         r_phone: req.body.r_phone,
-//         r_email:req.body.r_email,
-//         r_password:req.body.r_password,
-//         r_address: req.body.r_address,
-//         r_zip: req.body.r_zip,
-//         r_desciption: req.body.r_desciption,
-//         r_pic: req.body.r_pic},
-//         {where:{rid:req.params.rid}}
-//     )
-//     .then(()=>{
-//       res.json({status:'Restaurant successful updated'})
-//     })
-//     .error(err => handleError(err))
-//   }
-  
-// })
+})
 // https://www.youtube.com/watch?v=HrTVWTv0sLQ
 //https://medium.com/@sarahdherr/sequelizes-update-method-example-included-39dfed6821d
 // //using mysql for update but dose not work with updating hash password

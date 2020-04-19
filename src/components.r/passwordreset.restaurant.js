@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { Link } from 'react-router-dom';
+
 import style from "./RestaurantProfile.module.css";
 
 
-export default class RestaurantProfileEdit extends Component {
+export default class ChangePassword extends Component {
 
 
     constructor(props) {
@@ -43,7 +43,6 @@ export default class RestaurantProfileEdit extends Component {
             .then(response => {
                 console.log(response.params);
                 this.setState({
-                    rid: response.data.rid,
                     r_name: response.data.r_name,
                     r_phone: response.data.r_phone,
                     r_email: response.data.r_email,
@@ -112,7 +111,7 @@ export default class RestaurantProfileEdit extends Component {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
         const restaurantEdit = {
-            rid: this.state.rid,
+            rid: decoded.rid,
             r_name: this.state.r_name,
             r_phone: this.state.r_phone,
             r_email: this.state.r_email,
@@ -123,7 +122,7 @@ export default class RestaurantProfileEdit extends Component {
             r_pic: this.state.r_pic
         }
         //console.log(restaurantSingup);
-        axios.put('http://localhost:5000/restaurants/edit/'+ decoded.rid,restaurantEdit)
+        axios.put('http://localhost:5000/restaurants/edit/passwordsetting/'+ decoded.rid,restaurantEdit)
         .then(res => console.log(res.data));
 
         //this.props.history.push('/restaurant/profile')
@@ -134,50 +133,16 @@ export default class RestaurantProfileEdit extends Component {
     render() {
         return (
             <div className="container">
-                <h5>Edit Restaurant profile information</h5>
-                <Link className={style.editButton} to={"/restaurant/resetpassword/" + this.state.rid}>password reset</Link>
+                <h5>Reset you password</h5>
+                
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Restaurant Name</label>
+                        <label>Reset your password</label>
                         <input type="text" className="form-control"
-                            placeholder=""
-                            value={this.state.r_name}
-                            onChange={this.onChangeRName} />
+                            value={this.state.r_password}
+                            onChange={this.onChangeRPassword} />
                     </div>
-                    <div className="form-group">
-                        <label>Phone Number</label>
-                        <input type="text" className="form-control"
-                            placeholder=""
-                            value={this.state.r_phone}
-                            onChange={this.onChangeRPhone} />
-                    </div>
-                    <div className="form-group">
-                        <label>Restaurant Address</label>
-                        <input type="text" className="form-control"
-                            
-                            value={this.state.r_address}
-                            onChange={this.onChangeRAddress} />
-                    </div>
-                    <div className="form-group">
-                        <label>location zip code</label>
-                        <input type="text" className="form-control"
-                            value={this.state.r_zip}
-                            onChange={this.onChangeRZip} />
-                    </div>
-                    <div className="form-group">
-                        <label>Desciption</label>
-                        <textarea rows ="5" type="text" className="form-control"
-                            placeholder="Restaurant Desciption"
-                            value={this.state.r_desciption}
-                            onChange={this.onChangeRDesciption} />
-                    </div>
-                    <div className="form-group">
-                        <label>Picture URL</label>
-                        <input type="text" className="form-control"
-                            placeholder="Restaurant Picture URL"
-                            value={this.state.r_pic}
-                            onChange={this.onChangeRPic} />
-                    </div>
+                    
                     
                     <div className="form-group">
                         <input type="submit" value="save"

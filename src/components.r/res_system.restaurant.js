@@ -57,7 +57,7 @@ export default class RestaurantProfile extends Component {
       this.props.r_address !== prevProps.r_address ||
       this.props.r_zip !== prevProps.r_zip ||
       this.props.description !== prevProps.r_desciption ||
-      this.props.r_pic != prevProps.r_pic) {
+      this.props.r_pic !== prevProps.r_pic) {
 
       axios.get('http://localhost:5000/restaurants/' + decode.rid)
         .then(response => {
