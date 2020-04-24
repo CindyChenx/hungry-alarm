@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-import style from "./RestaurantProfile.module.css";
+
 
 
 export default class ChangePassword extends Component {
@@ -142,7 +142,6 @@ export default class ChangePassword extends Component {
                             value={this.state.r_password}
                             onChange={this.onChangeRPassword} />
                     </div>
-                    
                     
                     <div className="form-group">
                         <input type="submit" value="save"
