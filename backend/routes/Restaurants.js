@@ -199,6 +199,8 @@ users.put('/edit/:rid',function(req,res,next){
   }
   
 })
+
+
 // https://www.youtube.com/watch?v=HrTVWTv0sLQ
 //https://medium.com/@sarahdherr/sequelizes-update-method-example-included-39dfed6821d
 // //using mysql for update but dose not work with updating hash password
@@ -224,6 +226,19 @@ users.put('/edit/:rid',function(req,res,next){
 // // https://code.tutsplus.com/tutorials/code-your-first-api-with-nodejs-and-express-connect-a-database--cms-31699
 // // https://www.youtube.com/watch?v=4fWWn2Pe2Mk
 
+users.get('/events/:rid', function (req, res) {
+  Connection.query('select * from Events where rid=?', [req.params.rid], function (error, results, fields) {
+   if (error) throw error;
+   res.end(JSON.stringify(results));
+ });
+});
 
+
+users.post('/events/create', function (req, res) {
+   Connection.query('INSERT INTO Events SET ?', req.body, function (error, results, fields) {
+	  if (error) throw error;
+	  res.end(JSON.stringify(results));
+	});
+});
 
 module.exports = users
