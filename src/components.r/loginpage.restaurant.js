@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { login } from './RestaurantFunctions'
-import axios from 'axios'
+
 import style from "./LoginPage.module.css";
 
 
@@ -110,7 +110,7 @@ export default class RestaurantLogin extends Component {
                                 placeholder="Email:"
                                 value={this.state.r_email}
                                 onChange={this.onChangeEmail} />
-                            <input className={style.password} type="password" 
+                            <input className={style.password} type="password"
                                 placeholder="Password:"
                                 value={this.state.r_password}
                                 onChange={this.onChangePassword} />
@@ -119,7 +119,10 @@ export default class RestaurantLogin extends Component {
                             <a href="/restaurant/register">Create Account</a>
                             <p>visit our website to get more information or call our customer service.</p>
 
-                            <button className={style.login} align="center" onClick="login()">Login</button>
+                            {/* <div className={style.login} align="center" onClick="login()">Login</> */}
+                            <div className="form-group">
+                                <input type="submit" value="Apply" className={style.login} align="center" />
+                            </div>
                         </div>
                     </form>
 

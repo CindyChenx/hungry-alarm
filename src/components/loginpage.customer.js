@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login } from './UserFunctions';
+
 import Alert from './layout/alerts';
 import axios from 'axios';
 
@@ -55,16 +55,6 @@ export default class UserLogin extends Component {
                 this.setState({errorMessage:err.response.data.error})
             })
 
-        //console.log(userlogin);
-
-        // login(userlogin).then(res => {
-        //     if (res) {
-        //       this.props.history.push('/user/profile')
-        //     }
-        //   })
-
-
-        //  TODO : send data to the database
 
     }
 
@@ -93,8 +83,6 @@ export default class UserLogin extends Component {
                             onChange={this.onChangePassword} />
                     </div>
 
-
-                    {/* TODO: conform password check */}
 
                     <div className="form-group">
                         <input type="submit" value="Apply"

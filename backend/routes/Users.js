@@ -11,6 +11,20 @@ process.env.SECRET_KEY = 'Workhard2019'
 
 users.post('/register', (req, res) => {
 
+  if(!req.body.email){
+    res.status(400)
+    res.json({
+      error:'plase enter your email'
+    })
+  }
+
+  if(!req.body.password){
+    res.status(400)
+    res.json({
+      error:'please setup your passoword'
+    })
+}
+
   const userData = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -48,6 +62,15 @@ users.post('/register', (req, res) => {
 })
 
 users.post('/login', (req, res) => {
+ 
+
+  if(!req.body.password){
+    res.status(400)
+    res.json({
+      error:'please enter password'
+    })
+  }
+
   User.findOne({
     where: {
       email: req.body.email
@@ -89,6 +112,49 @@ users.get('/', (req, res) => {
     .catch(err => {
       res.send('error: ' + err)
     })
+})
+
+users.get('/:id', function(req,res,next){
+  User.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(user =>{
+    
+    if(user){
+      
+      res.json(user)
+    }else{
+      res.send('task dose not exist')
+    }
+  }).catch(err =>{
+    res.send('error:'+err)
+  })
+})
+
+users.put('/edit/:id',function(req,res,next){
+  
+  if(!req.body.email){
+    res.status(400)
+    res.json({
+      error:'error data without email'
+    })
+  }else{
+    User.update(
+      { first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        phone: req.body.phone,
+        email:req.body.email,
+        password:req.body.password},
+        {where:{id:req.params.id}}
+    )
+    .then(()=>{
+      res.json({status:'Restaurant successful updated'})
+    })
+    .error(err => handleError(err))
+  }
+  
 })
 
 module.exports = users

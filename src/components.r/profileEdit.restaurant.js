@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
+import style from "./RestaurantProfile.module.css";
 
 
 export default class RestaurantProfileEdit extends Component {
@@ -41,6 +43,7 @@ export default class RestaurantProfileEdit extends Component {
             .then(response => {
                 console.log(response.params);
                 this.setState({
+                    rid: response.data.rid,
                     r_name: response.data.r_name,
                     r_phone: response.data.r_phone,
                     r_email: response.data.r_email,
@@ -109,7 +112,7 @@ export default class RestaurantProfileEdit extends Component {
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
         const restaurantEdit = {
-            rid: decoded.rid,
+            rid: this.state.rid,
             r_name: this.state.r_name,
             r_phone: this.state.r_phone,
             r_email: this.state.r_email,
@@ -131,44 +134,51 @@ export default class RestaurantProfileEdit extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Edit Restaurant</h1>
+                <h5>Edit Restaurant profile information</h5>
+                <Link className={style.editButton} to={"/restaurant/resetpassword/" + this.state.rid}>password reset</Link>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
+                        <label>Restaurant Name</label>
                         <input type="text" className="form-control"
-                            placeholder="Restaurant Name"
+                            placeholder=""
                             value={this.state.r_name}
                             onChange={this.onChangeRName} />
                     </div>
                     <div className="form-group">
+                        <label>Phone Number</label>
                         <input type="text" className="form-control"
-                            placeholder="Phone Number"
+                            placeholder=""
                             value={this.state.r_phone}
                             onChange={this.onChangeRPhone} />
                     </div>
                     <div className="form-group">
+                        <label>Restaurant Address</label>
                         <input type="text" className="form-control"
-                            placeholder="Restaurant Address"
+                            
                             value={this.state.r_address}
                             onChange={this.onChangeRAddress} />
                     </div>
                     <div className="form-group">
+                        <label>location zip code</label>
                         <input type="text" className="form-control"
-                            placeholder="Zip code"
                             value={this.state.r_zip}
                             onChange={this.onChangeRZip} />
                     </div>
                     <div className="form-group">
-                        <input type="text" className="form-control"
+                        <label>Desciption</label>
+                        <textarea rows ="5" type="text" className="form-control"
                             placeholder="Restaurant Desciption"
                             value={this.state.r_desciption}
                             onChange={this.onChangeRDesciption} />
                     </div>
                     <div className="form-group">
+                        <label>Picture URL</label>
                         <input type="text" className="form-control"
                             placeholder="Restaurant Picture URL"
                             value={this.state.r_pic}
                             onChange={this.onChangeRPic} />
                     </div>
+                    
                     <div className="form-group">
                         <input type="submit" value="save"
                             className="btn btn-primary" />

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import style from './alerts.css'
 
 export class Alerts extends React.PureComponent {
 

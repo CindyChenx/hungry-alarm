@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { register } from './UserFunctions';
-
+import Alert from './layout/alerts';
+import axios from 'axios';
 
 
 export default class CreateUser extends Component {
@@ -21,6 +21,7 @@ export default class CreateUser extends Component {
             email: '',
             phone: '',
             password: '',
+            errorMessage: '',
         }
     }
     onChangeFirstName(e) {
@@ -70,11 +71,21 @@ export default class CreateUser extends Component {
             password: this.state.password,
         }
 
-        console.log(usersingup);
-        
-        register(usersingup).then(res => {
-            this.props.history.push('/register')
-        })
+        // console.log(usersingup);
+
+        // register(usersingup).then(res => {
+        //     this.props.history.push('/register')
+        // })
+
+        axios
+            .post('http://localhost:5000/users/register', usersingup)
+            .then(response => {
+                console.log('Registered')
+            })
+            .catch(err => {
+                console.log(err.response.data.error)
+                this.setState({errorMessage:err.response.data.error})
+            })
 
         //window.location = "/"
 
@@ -87,6 +98,8 @@ export default class CreateUser extends Component {
 
 
     render() {
+        const message = this.state.errorMessage
+        const alert = <Alert message={message} onDismiss />
         return (
             <div className="container">
 
@@ -122,7 +135,7 @@ export default class CreateUser extends Component {
 
                     <div className="form-group">
                         <input type="password" className="form-control"
-                            placeholder="pass word"
+                            placeholder="password"
                             value={this.state.password}
                             onChange={this.onChangePassword} />
                     </div>
@@ -131,7 +144,7 @@ export default class CreateUser extends Component {
                     <div className="form-group">
                         <input type="password" className="form-control" placeholder="Conform password" />
                     </div>
-
+                    <div>{alert}</div>
                     <div className="form-group">
                         <input type="submit" value="Apply"
                             className="btn btn-primary" />
