@@ -19,7 +19,7 @@ function User() {
     <Router>
       <Navbar />
       <br />
-      <Route path = "/" exact component = {NewsEvent} />
+      <Route path ="/" exact component = {NewsEvent} />
       <Route path="/user/location" component={LocationMap} />
       <Route path="/user/favorite" component={Favorite} />
       <Route path="/user/profile" component={UserSystem} />

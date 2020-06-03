@@ -14,6 +14,7 @@ import RestaurantBalance from "./components.r/accountbalance.restaurant"
 import RestaurantPage from "./components.r/yourpage.restaurant"
 import RestaurantProfileEdit from "./components.r/profileEdit.restaurant"
 import ChangePassword from "./components.r/passwordreset.restaurant"
+import EventCreate from "./components.r/createEvent.restaurant"
 
 function Restaurant() {
     return (
@@ -25,11 +26,14 @@ function Restaurant() {
            <Route path = "/restaurant/login"  component = {RestaurantLogin}/>
            <Route path = "/restaurant/profile"  component = {RestaurantProfile}/> 
            <Route path = "/restaurant/register"  component = {CreateRestaurant}/> 
-           <Route path = "/restaurant/event"  component = {RestaurantEvent}/>
+           
            <Route path = "/restaurant/payment"  component = {RestaurantBalance}/>
            <Route path = "/restaurant/yourpage"  component = {RestaurantPage}/>
            <Route path = "/restaurant/profileEdit/:id"  component = {RestaurantProfileEdit}/> 
-           <Route path = "/restaurant/resetpassword/:id"  component = {ChangePassword}/> 
+           <Route path = "/restaurant/resetpassword/:id"  component = {ChangePassword}/>
+
+           <Route path = "/restaurant/event"  component = {RestaurantEvent}/>
+           <Route path = "/restaurant/eventCreate" component = {EventCreate}/>
            
            
          </Router>

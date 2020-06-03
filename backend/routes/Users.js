@@ -11,6 +11,20 @@ process.env.SECRET_KEY = 'Workhard2019'
 
 users.post('/register', (req, res) => {
 
+  if(!req.body.email){
+    res.status(400)
+    res.json({
+      error:'plase enter your email'
+    })
+  }
+
+  if(!req.body.password){
+    res.status(400)
+    res.json({
+      error:'please setup your passoword'
+    })
+}
+
   const userData = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -48,6 +62,15 @@ users.post('/register', (req, res) => {
 })
 
 users.post('/login', (req, res) => {
+ 
+
+  if(!req.body.password){
+    res.status(400)
+    res.json({
+      error:'please enter password'
+    })
+  }
+
   User.findOne({
     where: {
       email: req.body.email

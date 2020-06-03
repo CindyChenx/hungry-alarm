@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from "./accountbalance.module.css";
-import History from "./historyCard.js"
+
 
 
 export default class RestaurantBalance extends Component {

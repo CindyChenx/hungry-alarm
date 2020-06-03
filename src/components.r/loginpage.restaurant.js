@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { login } from './RestaurantFunctions'
-import axios from 'axios'
+
 import style from "./LoginPage.module.css";
 
 

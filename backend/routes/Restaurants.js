@@ -233,12 +233,14 @@ users.get('/events/:rid', function (req, res) {
  });
 });
 
-
 users.post('/events/create', function (req, res) {
    Connection.query('INSERT INTO Events SET ?', req.body, function (error, results, fields) {
 	  if (error) throw error;
 	  res.end(JSON.stringify(results));
 	});
 });
+
+
+
 
 module.exports = users
