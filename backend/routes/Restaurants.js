@@ -29,7 +29,6 @@ users.post('/register', (req, res) => {
       r_email: req.body.r_email
     }
   })
-    //TODO bcrypt
     .then(user => {
       if (!user) {
         bcrypt.hash(req.body.r_password, 10, (err, hash) => {
