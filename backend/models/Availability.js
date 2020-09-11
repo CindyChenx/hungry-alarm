@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../database/db.js')
 
 module.exports = db.sequelize.define(
-  'availablility',
+  'available',
   {
     rid: {
       type: Sequelize.INTEGER,
@@ -18,7 +18,7 @@ module.exports = db.sequelize.define(
     end_time:{
         type:Sequelize.DATE
     },
-    limit:{
+    limits:{
         type:Sequelize.INTEGER
     }  
   },

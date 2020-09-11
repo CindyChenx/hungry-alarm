@@ -16,11 +16,11 @@ module.exports = db.sequelize.define(
     payment_method: {
         type: Sequelize.STRING
     },
-    account_number: {
-        type: Sequelize.INTEGER
+    account_num: {
+        type: Sequelize.STRING
     },
-    rounting_number: {
-      type: Sequelize.INTEGER
+    rounting_num: {
+      type: Sequelize.STRING
     }
     
   },

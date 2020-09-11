@@ -17,12 +17,16 @@ var Users = require('./routes/Users')
 var Restaurant = require('./routes/Restaurants')
 var Reservation = require('./routes/Reservation')
 var Favorate = require('./routes/Favorate')
+var PaymentInfo = require('./routes/PaymentInfo')
+var Availability = require('./routes/Availability')
 
 
 app.use('/users', Users)
 app.use('/restaurants', Restaurant)
 app.use('/reservation',Reservation )
 app.use('/users/favorate',Favorate)
+app.use('/restaurants/payinfo',PaymentInfo)
+app.use('/restaurants/ava',Availability)
 
 app.listen(port, function () {
   console.log('Server is running on port: ' + port)
