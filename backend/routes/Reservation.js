@@ -23,22 +23,18 @@ reserv.post('/add',(req,res) => {
             error: 'restaurant id needed'
         })
     }
-
     if(!req.body.date){
         res.status(400)
         res.json({
             error: 'reservation date required'
         })
     }
-
-
     if(!req.body.time){
         res.status(400)
         res.json({
             error: 'reservation time required'
         })
     }
-
     if(!req.body.seats){
         res.status(400)
         res.json({
@@ -46,7 +42,7 @@ reserv.post('/add',(req,res) => {
         })
     }
       const shiftSetup = {
-        cid: req.body.id,
+        cid: req.body.cid,
         rid: req.body.rid,
         date: req.body.date,
         time: req.body.time,
@@ -67,12 +63,41 @@ reserv.post('/add',(req,res) => {
 })
 
 // TODO: get reservation by customer id
-
+reserv.get('/customer/:cid', function(req,res, next){
+    Reserv.findAll({
+      where:{
+        cid:req.params.cid
+      }
+    }).then(reservation =>{
+      if(reservation){
+        res.json(reservation)
+      }else{
+        res.send('fell free to make any reservation if needed')
+      }
+    }).catch(error =>{
+      res.send('error: '+ error)
+    })
+})
 
 // TODO: get one reservation by reservation id
+reserv.get('/:res_id', function (req, res, next) {
+  Reserv.findOne({
+    where: {
+      reservation_id: req.params.res_id
+    }
+  }).then(reservation => {
+    if (reservation) {
+      res.json(reservation)
+    } else {
+      res.send('reservation dose not exist')
+    }
+  }).catch(err => {
+    res.send('error:' + err)
+  })
+})
 
 // TODO: get data by restaurant id 
-reserv.get('/:rid', function (req, res, next) {
+reserv.get('/restaurant/:rid', function (req, res, next) {
     Reserv.findAll({
       where: {
         rid: req.params.rid
@@ -89,16 +114,15 @@ reserv.get('/:rid', function (req, res, next) {
   })
 
 // TODO: change reservation using customer id and resturant id 
-
-reserv.put('/update/:reservid', function (req, res, next) {
+reserv.put('/update/:res_id', function (req, res, next) {
     if (!req.body.rid && !req.body.cid){
       res.status(400)
       res.json({
-        error: "this unit is invalid"
+        error: "reservation dose not exits"
       })
     } else {
       Reserv.update({
-        cid: req.body.id,
+        cid: req.body.cid,
         rid: req.body.rid,
         date: req.body.date,
         time: req.body.time,
@@ -108,7 +132,9 @@ reserv.put('/update/:reservid', function (req, res, next) {
         comment: req.body.comment
       },
         {
-          where: { reservid: req.params.reservid }
+          where: { 
+            reservation_id: req.params.res_id
+          }
         }
       ).then(() => {
         res.json({ status: "reservation is updated" })
@@ -120,10 +146,10 @@ reserv.put('/update/:reservid', function (req, res, next) {
 
 // TODO: cancel reservation using restaurant id and customer id 
 
-reserv.delete('/cancel/:reservid', function (req, res, next) {
+reserv.delete('/cancel/:res_id', function (req, res, next) {
     Reserv.destroy({
       where: {
-        reservid : req.params.reservid
+        reservation_id: req.params.res_id
       }
     })
       .then(() => {
