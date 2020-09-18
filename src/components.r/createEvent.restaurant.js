@@ -8,7 +8,6 @@ export default class EventCreate extends Component {
 
     constructor(props) {
         super(props);
-
         this.onChangeRid = this.onChangeRid.bind(this)
         this.onChangeTitle = this.onChangeTitle.bind(this)
         this.onChangeDate = this.onChangeDate.bind(this)
@@ -30,22 +29,7 @@ export default class EventCreate extends Component {
 
     }
 
-    componentDidMount() {
 
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
-
-        axios.get('http://localhost:5000/restaurants/' + decoded.rid)
-            .then(response => {
-                this.setState({
-                    rid: response.data.rid,
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-
-    }
     onChangeRid(e) {
         this.setState({
             rid: e.target.value
@@ -93,20 +77,27 @@ export default class EventCreate extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        axios.post('http://localhost:5000/restaurants/events/create',
-            {
-                rid: this.state.rid,
-                event_title: this.state.event_title,
-                event_date: this.state.event_date,
-                start_time: this.state.start_time,
-                end_time: this.state.end_time,
-                description: this.state.description,
-                event_picture: this.state.event_picture
-            })
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+
+        const eventCreate ={
+            rid: decoded.rid,
+            event_title: this.state.event_title,
+            event_date: this.state.event_date,
+            start_time: this.state.start_time,
+            end_time: this.state.end_time,
+            description: this.state.description,
+            event_picture: this.state.event_picture
+        }
+
+        axios.post('http://localhost:5000/restaurants/events/create',eventCreate)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
                 window.location = "/restaurant/event"
+            })
+            .catch(err =>{
+                console.log(err)
             })
         
     }

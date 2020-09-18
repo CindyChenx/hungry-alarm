@@ -94,9 +94,6 @@ export default class CreateUser extends Component {
     }
 
 
-
-
-
     render() {
         const message = this.state.errorMessage
         const alert = <Alert message={message} onDismiss />

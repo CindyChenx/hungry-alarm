@@ -1,27 +1,36 @@
 .eventcontainer{
     position: relative;
     text-align: center;
-    color:white;
 }
 
 .eventImg{
     margin-top: 3%;
     width: 90%; 
-    height: 250px;
+    height: 350px;
     border-radius: 5%;
 }
 .eventName{
     color: aliceblue;
     position:absolute;
-    top: 60%;
-    bottom: 40%;
-    right :10%;
+    font-size: 70px;
+    top: 45%;
+    bottom: 55%;
+    right :8%;
 }
 
-.eventTime{
-    color: aliceblue;
+.eventDate{
+    color: pink;
     position:absolute;
-    top: 75%;
-    bottom: 25%;
-    right :10%;
+    font-size: 35px;
+    top: 70%;
+    bottom: 30%;
+    right :8%;
+}
+.eventTime{
+    color:  pink;
+    position:absolute;
+    font-size: 35px;
+    top: 80%;
+    bottom: 20%;
+    right :8%;
 }

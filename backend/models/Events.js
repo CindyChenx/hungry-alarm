@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../database/db.js')
 
 module.exports = db.sequelize.define(
-  'events',
+  'Event',
   {
     event_id: {
       type: Sequelize.INTEGER,
@@ -16,16 +16,19 @@ module.exports = db.sequelize.define(
     event_title: {
         type: Sequelize.STRING
     },
+    event_date: {
+      type: Sequelize.DATE
+    },
     start_time: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
     },
     end_time: {
-      type: Sequelize.DATE
+      type: Sequelize.STRING
     },
     description:{
         type:Sequelize.STRING
     },
-    event_pic:{
+    event_picture:{
         type:Sequelize.STRING
     }
     

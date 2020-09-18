@@ -34,8 +34,6 @@ export default class RestaurantProfileEdit extends Component {
     }
 
     componentDidMount() {
-
-        
         const token = localStorage.usertoken
         const decoded = jwt_decode(token)
         

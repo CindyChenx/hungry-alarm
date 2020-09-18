@@ -19,6 +19,7 @@ var Reservation = require('./routes/Reservation')
 var Favorate = require('./routes/Favorate')
 var PaymentInfo = require('./routes/PaymentInfo')
 var Availability = require('./routes/Availability')
+var Event = require('./routes/Event')
 
 
 app.use('/users', Users)
@@ -27,6 +28,7 @@ app.use('/reservation',Reservation )
 app.use('/users/favorate',Favorate)
 app.use('/restaurants/payinfo',PaymentInfo)
 app.use('/restaurants/ava',Availability)
+app.use('/restaurants/events',Event)
 
 app.listen(port, function () {
   console.log('Server is running on port: ' + port)
