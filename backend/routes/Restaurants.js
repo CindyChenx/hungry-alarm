@@ -29,7 +29,6 @@ users.post('/register', (req, res) => {
       r_email: req.body.r_email
     }
   })
-    //TODO bcrypt
     .then(user => {
       if (!user) {
         bcrypt.hash(req.body.r_password, 10, (err, hash) => {
@@ -226,19 +225,22 @@ users.put('/edit/:rid',function(req,res,next){
 // // https://code.tutsplus.com/tutorials/code-your-first-api-with-nodejs-and-express-connect-a-database--cms-31699
 // // https://www.youtube.com/watch?v=4fWWn2Pe2Mk
 
-users.get('/events/:rid', function (req, res) {
-  Connection.query('select * from Events where rid=?', [req.params.rid], function (error, results, fields) {
-   if (error) throw error;
-   res.end(JSON.stringify(results));
- });
-});
+// users.get('/events/:rid', function (req, res) {
+//   Connection.query('select * from Events where rid=?', [req.params.rid], function (error, results, fields) {
+//    if (error) throw error;
+//    res.end(JSON.stringify(results));
+//  });
+// });
 
-users.post('/events/create', function (req, res) {
-   Connection.query('INSERT INTO Events SET ?', req.body, function (error, results, fields) {
-	  if (error) throw error;
-	  res.end(JSON.stringify(results));
-	});
-});
+//ToDo: show all the event
+
+
+// users.post('/events/create', function (req, res) {
+//    Connection.query('INSERT INTO Events SET ?', req.body, function (error, results, fields) {
+// 	  if (error) throw error;
+// 	  res.end(JSON.stringify(results));
+// 	});
+// });
 
 
 

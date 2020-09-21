@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Card from './RestaurantCard';
 
+
 export default class NewsEvent extends Component {
 
     constructor(props) {
@@ -11,6 +12,8 @@ export default class NewsEvent extends Component {
 
     //got data from the database
     componentDidMount() {
+        
+
         axios.get('http://localhost:5000/restaurants/eventdispaly')
             .then(response => {
                 console.log(response.data.users)
