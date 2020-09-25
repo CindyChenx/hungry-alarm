@@ -3,8 +3,9 @@ import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
     logOut(e) {
-        localStorage.removeItem('usertoken')
-        this.props.history.push('/')
+        // localStorage.removeItem('usertoken')
+        // this.props.history.push('/')
+        window.location = "/"
     }
 
 
@@ -20,7 +21,7 @@ class Navbar extends Component {
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="./user/login" className="nav-link">
+                    <Link to="../user/login" className="nav-link">
                         Login
                 </Link>
                 </li>

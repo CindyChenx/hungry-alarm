@@ -6,7 +6,9 @@ import './App.css';
 
 import Navbar from "./components/navbar.customer"
 
-import NewsEvent from "./components/newsevent.customer"
+// import NewsEvent from "./components/newsevent.customer"
+import UserLogin from "./components/CustomerLoginpage/loginpage.customer"
+import RestaurantLogin from "./components.r/loginpage.restaurant"
 //  import LocationMap from "./components/map.customer"
 //  import Favorite from "./components/favorite.customer"
 //  import UserSystem from "./components/usersystem.customer"
@@ -30,17 +32,18 @@ function App() {
 
     <Router>
     
-      <Navbar />
+      {/* <Navbar /> */}
   
-      <Route path="/" exact component={NewsEvent} />
+      <Route path="/" exact component={UserLogin} />
       {/* <Route path = "/location"  component = {LocationMap} />
       <Route path = "/favorite"  component = {Favorite} />
       <Route path = "/profile"  component = {UserSystem} />
       <Route path = "/login" component = {UserLogin} />
       <Route path = "/register" component = {CreateUser} /> 
        */}
-      <Route path="/restaurant" component={Restaurant} />
-      <Route path="/user" component={User} />
+      <Route  path="/restaurant/start" exact component={RestaurantLogin} />
+      <Route  path="/restaurant" component={Restaurant} />
+      <Route  path="/user" component={User} />
 
       {/* <Route path = "/restaurant/login"  component = {RestaurantLogin}/>
       <Route path = "/restaurant/profile"  component = {RestaurantProfile}/> 

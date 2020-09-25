@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
+
 import Navbar from "./components.r/navbar.restaurant"
 
 import NewsEvent from "./components/newsevent.customer"
@@ -24,8 +25,8 @@ function Restaurant() {
         <Router>
            <Navbar />
            <br/>
-           <Route path = "/" exact component = {NewsEvent} />
-           <Route path = "/restaurant/login"  component = {RestaurantLogin}/>
+           {/* <Route path = "/" component = {NewsEvent} /> */}
+           {/* <Route path = "/restaurant/login"  component = {RestaurantLogin}/> */}
            <Route path = "/restaurant/profile"  component = {RestaurantProfile}/> 
            <Route path = "/restaurant/register"  component = {CreateRestaurant}/> 
            

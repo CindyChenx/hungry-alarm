@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 class Navbar extends Component {
     logOut(e) {
         localStorage.removeItem('usertoken')
-        this.props.history.push('/')
+        window.location = "/"
     }
 
 
@@ -12,12 +12,12 @@ class Navbar extends Component {
         const loginRegLink = (
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/restaurant/login" className="nav-link">
+                    <Link to="../restaurant/login" className="nav-link">
                         Restaurant
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/user/login" className="nav-link">
+                    <Link to="/" className="nav-link">
                         Login
                 </Link>
                 </li>
@@ -43,30 +43,21 @@ class Navbar extends Component {
                         User
                 </Link>
                 </li>
-                <li className="nav-item">
-                    <a  onClick={this.logOut.bind(this)} className="nav-link">
-                        Logout
-                </a>
+                <li className="nav-item">   
+                    <a onClick={this.logOut.bind(this)} className="nav-link">
+                        Logout</a>
                 </li>
-            </ul>
+            </ul >
         )
-       
+
         return (
 
-            <nav className="navbar navbar-expand-lg navbar-passion bg-light">
-                <a className="navbar-brand" >Hungry alarm</a>
-                <button className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">hungry alarm</a>
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div className="collapse navbar-collapse justify-contentent-mid-conter" id="navbarSupportedContent">
-
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li>
                             <Link to="/" className="nav-link">
