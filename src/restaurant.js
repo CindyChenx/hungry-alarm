@@ -15,6 +15,8 @@ import RestaurantPage from "./components.r/yourpage.restaurant"
 import RestaurantProfileEdit from "./components.r/profileEdit.restaurant"
 import ChangePassword from "./components.r/passwordreset.restaurant"
 import EventCreate from "./components.r/createEvent.restaurant"
+import EventTemplet from "./components.r/eventTemplet"
+import EventEdit from "./components.r/eventEditpage"
 
 function Restaurant() {
     return (
@@ -34,7 +36,9 @@ function Restaurant() {
 
            <Route path = "/restaurant/event"  component = {RestaurantEvent}/>
            <Route path = "/restaurant/eventCreate" component = {EventCreate}/>
-           
+           <Route path = "/restaurant/joinevent/:id"  component = {EventTemplet}/>
+           <Route path = "/restaurant/eventedit/:id"  component = {EventEdit}/>
+          
            
          </Router>
         

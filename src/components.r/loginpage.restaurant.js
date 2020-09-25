@@ -16,7 +16,6 @@ export default class RestaurantLogin extends Component {
         this.state = {
             r_email: '',
             r_password: '',
-            // redirectToReferrer: false,
         }
     }
 

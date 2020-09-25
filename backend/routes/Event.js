@@ -44,6 +44,12 @@ router.post('/create', (req, res) => {
     })
 })
 
+router.get('/allevent', function (req, res, next) {
+  Events.findAll().then(event => {
+    res.json(event)
+  })
+})
+
 //Todo: display event by rid
 router.get('/:rid', function (req, res, next) {
   Events.findAll({

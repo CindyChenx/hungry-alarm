@@ -15,6 +15,7 @@ export default class UserEdit extends Component {
         this.onChangeConform = this.onChangeConform.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
 
+        
         this.state = {
             first_name: '',
             last_name: '',
