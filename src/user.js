@@ -5,11 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar.customer"
 
-import NewsEvent from "./components/newsevent.customer"
+import RestaurantDisplya from "./components/newsevent.customer"
 import LocationMap from "./components/map.customer"
 import Favorite from "./components/favorite.customer"
 import UserSystem from "./components/usersystem.customer"
-import UserLogin from "./components/CustomerLoginpage/loginpage.customer"
+// import UserLogin from "./components/CustomerLoginpage/loginpage.customer"
 import CreateUser from "./components/createuser.customer"
 import UserEdit from "./components/userEdit.customer"
 
@@ -19,7 +19,7 @@ function User() {
     <Router>
       <Navbar />
       <br />
-      {/* <Route path ="/event" component = {NewsEvent} /> */}
+      <Route path ="/home" component = {RestaurantDisplya} />
       <Route path="/user/location" component={LocationMap} />
       <Route path="/user/favorite" component={Favorite} />
       <Route path="/user/profile" component={UserSystem} />

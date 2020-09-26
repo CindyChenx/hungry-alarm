@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import style from "./LoginPage.module.css";
 
 
+
 export default class RestaurantLogin extends Component {
 
     constructor(props) {
@@ -16,6 +17,7 @@ export default class RestaurantLogin extends Component {
         this.state = {
             r_email: '',
             r_password: '',
+            errorMessage: ''
         }
     }
 
@@ -37,7 +39,6 @@ export default class RestaurantLogin extends Component {
         e.preventDefault();
 
         const restaurantLogin = {
-
             r_email: this.state.r_email,
             r_password: this.state.r_password,
         }
@@ -46,8 +47,9 @@ export default class RestaurantLogin extends Component {
 
         login(restaurantLogin).then(res => {
             if (res) {
-                // localStorage.setItem('usertoken', res.data)
-                this.props.history.push('/restaurant/profile')
+                localStorage.setItem('rtoken', res.data)
+                // this.props.history.push('/restaurant/profile')
+                window.location = "/restaurant/profile"
             }
         })
 
@@ -68,7 +70,7 @@ export default class RestaurantLogin extends Component {
 
     render() {
         return (
-            <div className="container">
+            
 
                 <div className={style.container}>
                     <div className={style.headerContainer}>
@@ -101,7 +103,7 @@ export default class RestaurantLogin extends Component {
                     </form>
 
                 </div>
-            </div>
+            
         );
     }
 }

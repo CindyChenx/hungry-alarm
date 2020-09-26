@@ -12,7 +12,7 @@ class Navbar extends Component {
         const loginRegLink = (
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="../restaurant/login" className="nav-link">
+                    <Link to="/restaurant/start" className="nav-link">
                         Restaurant
                 </Link>
                 </li>
@@ -60,8 +60,8 @@ class Navbar extends Component {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li>
-                            <Link to="/" className="nav-link">
-                                Events
+                            <Link to="/home" className="nav-link">
+                                Home
                             </Link>
                         </li>
 

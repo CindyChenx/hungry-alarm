@@ -43,8 +43,8 @@ export default class UserSystem extends Component {
 
     render() {
       return (
-        <div className="container">
-          <div className="jumbotron mt-5">
+        <div >
+          {/* <div className="jumbotron mt-5">
             <div className="col-sm-8 mx-auto">
               <h1 className="text-center">PROFILE</h1>
             </div>
@@ -64,7 +64,7 @@ export default class UserSystem extends Component {
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> */}
           <div className={style.container}>
             <header className={style.headerContainer}>
               <div className={style.profilePhotoContainer}>

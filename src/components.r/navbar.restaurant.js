@@ -3,25 +3,21 @@ import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
     logOut(e) {
-        // localStorage.removeItem('usertoken')
-        // this.props.history.push('/')
-        window.location = "/"
+        localStorage.removeItem('rtoken')
+        this.props.history.push('/')
+        // window.location = "/restaurant/start"
     }
-
-
-
-
 
     render() {
         const loginRegLink = (
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="../restaurant/login" className="nav-link">
+                    <Link to="/restaurant/start" className="nav-link">
                         Restaurant
                 </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="../user/login" className="nav-link">
+                    <Link to="/" className="nav-link">
                         Login
                 </Link>
                 </li>
@@ -80,11 +76,11 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse justify-contentent-mid-conter" id="navbarSupportedContent">
 
                     <ul className="navbar-nav ml-auto">
-                        <li>
+                        {/* <li>
                             <Link to="../" className="nav-link">
                                 Events
                             </Link>
-                        </li>
+                        </li> */}
 
                     </ul>
                     {localStorage.usertoken ? RestaurantLink : loginRegLink}

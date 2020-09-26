@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Alert from '../layout/alerts';
 import axios from 'axios';
 import style from "../../components.r/LoginPage.module.css";
@@ -40,7 +39,6 @@ export default class UserLogin extends Component {
         e.preventDefault();
 
         const userlogin = {
-
             email: this.state.email,
             password: this.state.password,
         }
@@ -67,9 +65,10 @@ export default class UserLogin extends Component {
         const message = this.state.errorMessage
         const alert = <Alert message={message} onDismiss />
         return (
-            <div className="container" >
-                <div>{alert}</div>
+            
+                
                 <div className={style.container}>
+                <div>{alert}</div>
                     <div className={style.headerContainer}>
                         <header>
                             <Link to="/" className={style.personal} align="center" >Personal</Link>
@@ -105,7 +104,7 @@ export default class UserLogin extends Component {
                     </form>
 
                 </div>
-            </div>
+           
 
 
         );

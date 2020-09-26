@@ -6,8 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components.r/navbar.restaurant"
 
-import NewsEvent from "./components/newsevent.customer"
-import RestaurantLogin from "./components.r/loginpage.restaurant"
+import RestaurantDisplay from "./components/newsevent.customer"
+// import RestaurantLogin from "./components.r/loginpage.restaurant"
 import RestaurantProfile from "./components.r/res_system.restaurant"
 import CreateRestaurant from "./components.r/createRestaurant.restaurant"
 import RestaurantEvent from "./components.r/eventspage.restaurant"
@@ -25,9 +25,9 @@ function Restaurant() {
         <Router>
            <Navbar />
            <br/>
-           {/* <Route path = "/" component = {NewsEvent} /> */}
+           <Route path = "/home" component = {RestaurantDisplay} />
            {/* <Route path = "/restaurant/login"  component = {RestaurantLogin}/> */}
-           <Route path = "/restaurant/profile"  component = {RestaurantProfile}/> 
+           <Route path = "/restaurant/profile" component = {RestaurantProfile}/> 
            <Route path = "/restaurant/register"  component = {CreateRestaurant}/> 
            
            <Route path = "/restaurant/payment"  component = {RestaurantBalance}/>
