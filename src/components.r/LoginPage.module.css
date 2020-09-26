@@ -2,9 +2,12 @@
 	background-color: #D5F7E2;
     font-family: 'Ubuntu', sans-serif;
     padding: 20%;
+    padding-top: 40%;
+    padding-bottom: 80%;
 }
 
 .headerContainer {
+    padding: 10%;
 	text-align: center;
 }
 

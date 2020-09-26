@@ -131,7 +131,7 @@ export default class RestaurantProfileEdit extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div >
                 <h5>Edit Restaurant profile information</h5>
                 <Link className={style.editButton} to={"/restaurant/resetpassword/" + this.state.rid}>password reset</Link>
                 <form onSubmit={this.onSubmit}>

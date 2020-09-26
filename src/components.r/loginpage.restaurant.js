@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { login } from './RestaurantFunctions'
-
+import { Link } from "react-router-dom";
 import style from "./LoginPage.module.css";
+
 
 
 export default class RestaurantLogin extends Component {
@@ -16,7 +17,7 @@ export default class RestaurantLogin extends Component {
         this.state = {
             r_email: '',
             r_password: '',
-            // redirectToReferrer: false,
+            errorMessage: ''
         }
     }
 
@@ -38,7 +39,6 @@ export default class RestaurantLogin extends Component {
         e.preventDefault();
 
         const restaurantLogin = {
-
             r_email: this.state.r_email,
             r_password: this.state.r_password,
         }
@@ -47,7 +47,9 @@ export default class RestaurantLogin extends Component {
 
         login(restaurantLogin).then(res => {
             if (res) {
-                this.props.history.push('/restaurant/profile')
+                localStorage.setItem('rtoken', res.data)
+                // this.props.history.push('/restaurant/profile')
+                window.location = "/restaurant/profile"
             }
         })
 
@@ -68,43 +70,19 @@ export default class RestaurantLogin extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h1>Restaurant login</h1>
-                <form onSubmit={this.onSubmit}>
-
-                    <div className="form-group">
-                        <input type="text" className="form-control"
-                            placeholder="Email"
-                            value={this.state.r_email}
-                            onChange={this.onChangeEmail} />
-                    </div>
-
-
-                    <div className="form-group">
-                        <input type="password" className="form-control"
-                            placeholder="password"
-                            value={this.state.r_password}
-                            onChange={this.onChangePassword} />
-                    </div>
-
-                    {/* TODO: conform password check */}
-
-                    <div className="form-group">
-                        <input type="submit" value="Apply"
-                            className="btn btn-primary" />
-                    </div>
-
-                </form>
+            
 
                 <div className={style.container}>
                     <div className={style.headerContainer}>
                         <header>
-                            <button className={style.personal} align="center" onClick="goToPersonal()">Personal</button><button className={style.restaurant} align="center" onClick="goToRestaurant()">Restaurant</button>
+                            <Link to="/" className={style.personal} align="center" >Personal</Link>
+                            <Link to="/restaurant/start" className={style.restaurant} align="center">Restaurant</Link>
                         </header>
                     </div>
 
                     <h1 align="center">Hungry Alarm</h1>
-                    <form action="Sumbmit" className={style.loginform}>
+                    <h5 align="center">restaurant login</h5>
+                    <form onSubmit={this.onSubmit} className={style.loginform}>
                         <div>
                             <input className={style.email} type="text"
                                 placeholder="Email:"
@@ -118,8 +96,6 @@ export default class RestaurantLogin extends Component {
                         <div className={style.wrapper}>
                             <a href="/restaurant/register">Create Account</a>
                             <p>visit our website to get more information or call our customer service.</p>
-
-                            {/* <div className={style.login} align="center" onClick="login()">Login</> */}
                             <div className="form-group">
                                 <input type="submit" value="Apply" className={style.login} align="center" />
                             </div>
@@ -127,7 +103,7 @@ export default class RestaurantLogin extends Component {
                     </form>
 
                 </div>
-            </div>
+            
         );
     }
 }
