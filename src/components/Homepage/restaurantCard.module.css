@@ -1,0 +1,15 @@
+.picturedisplay{
+    float: left;
+    margin-right: 10px;
+}
+
+.content{
+    height: 200px;
+    
+}
+
+.Card{
+    border: gray;
+    border-radius: 10;
+    margin: 3%;
+}

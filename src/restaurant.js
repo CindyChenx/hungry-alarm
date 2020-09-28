@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components.r/navbar.restaurant"
 
-import RestaurantDisplay from "./components/newsevent.customer"
+import RestaurantDisplay from "./components/Homepage/newsevent.customer"
 // import RestaurantLogin from "./components.r/loginpage.restaurant"
 import RestaurantProfile from "./components.r/res_system.restaurant"
 import CreateRestaurant from "./components.r/createRestaurant.restaurant"

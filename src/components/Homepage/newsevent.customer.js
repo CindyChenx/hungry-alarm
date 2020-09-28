@@ -33,11 +33,8 @@ export default class NewsEvent extends Component {
 
     render() {
         return (
-            <div className = "container">
-                <h3>Company List</h3>
-                <div className="row">
-                        {this.companiesList()}           
-                </div>
+            <div>
+                {this.companiesList()}           
             </div>
         );
     }

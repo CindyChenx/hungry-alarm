@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import style from './favoriteCard.module.css';
 
 
 export default class FavoriteCard extends Component {
@@ -40,14 +41,22 @@ export default class FavoriteCard extends Component {
 
     render() {
         return (
-            <div>
-                <img src={this.state.r_pic} alt=""/>
-                <h1>{this.state.r_name}</h1>
-                <h1>{this.state.r_phone}</h1>
-                <h1>{this.state.r_address}</h1>
-                <h1>{this.state.r_desciption}</h1>
-                <button>delete favorate</button>
-            </div>
+            <div className={style.cardContainer}>
+                <img className={style.thumbnailPic} src={this.state.r_pic} alt='' />
+                <div className={style.infoBox}>
+                  <h1 className={style.title}>{this.state.r_name}</h1>
+                  <h2 className={style.subtitle}>{this.state.r_phone}</h2>
+                  <h2 className={style.subtitle}>
+                    {this.state.r_address} {this.state.r_zip}
+                  </h2>
+                  <div className={style.descriptionBox}>
+                    <p className={style.resDescription}>{this.state.r_desciption}</p>
+                  </div>
+                  <button className={style.deleteFavButton}>Delete favorite</button>
+                </div>
+              </div>
         )
+
+        
     }
 }

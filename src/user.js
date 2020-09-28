@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar.customer"
 
-import RestaurantDisplya from "./components/newsevent.customer"
+import RestaurantDisplya from "./components/Homepage/newsevent.customer"
 import LocationMap from "./components/map.customer"
-import Favorite from "./components/favorite.customer"
+import Favorite from "./components/FavoritePage/favorite.customer"
 import UserSystem from "./components/usersystem.customer"
 // import UserLogin from "./components/CustomerLoginpage/loginpage.customer"
 import CreateUser from "./components/createuser.customer"

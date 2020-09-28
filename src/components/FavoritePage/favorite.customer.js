@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import Card from './FavoritePage/FavoriteCard'
+import Card from './FavoriteCard'
 
 
 
@@ -40,7 +40,6 @@ export default class Favorite extends Component {
     render() {
         return (
             <div>
-                
                 <div className='row'>
                     {this.FavoriteList()}    
                 </div>

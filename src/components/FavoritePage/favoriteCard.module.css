@@ -1,0 +1,46 @@
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-template-rows: 1fr;
+  padding: 1rem;
+  border-bottom: solid 1px #636161;
+  margin-right: 3%;
+  margin-left: 3%;
+}
+
+.thumbnailPic {
+  max-width: 100%;
+  /* max-height: 100%; */
+  border-radius: 1rem;
+}
+
+.infoBox {
+  margin-left: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.65rem;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 0.25rem;
+}
+
+.resDescription {
+  font-size: 0.5rem;
+  margin-top: 0.25rem;
+}
+.descriptionBox {
+  height: 30px;
+  overflow: hidden;
+}
+
+.deleteFavButton {
+  border: none;
+  font-size: 0.65rem;
+  background: #d5f7e2;
+}
