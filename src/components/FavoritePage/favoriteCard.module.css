@@ -1,3 +1,17 @@
+/* .cardContainer {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-template-rows: 1fr;
+  padding: 1rem;
+  border-bottom: solid 1px #636161;
+}
+
+.thumbnailPic {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
+} */
+
 .cardContainer {
   display: grid;
   grid-template-columns: 1.5fr 2fr;
@@ -6,13 +20,18 @@
   border-bottom: solid 1px #636161;
   margin-right: 3%;
   margin-left: 3%;
+  width: 100%;
+  height: 300px;
 }
-
 .thumbnailPic {
   max-width: 100%;
   max-height: 100%;
+  height: 280px;
+  /* width: 100%;
+  height: 100%; */
   border-radius: 1rem;
 }
+
 
 .infoBox {
   margin-left: 1rem;

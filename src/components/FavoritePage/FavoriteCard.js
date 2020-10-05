@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import style from './favoriteCard.module.css';
+import jwt_decode from 'jwt-decode'
 
 
 export default class FavoriteCard extends Component {
@@ -39,8 +40,24 @@ export default class FavoriteCard extends Component {
             })
     }
 
+    delectFavorite(){
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        console.log(decoded.id)
+        
+        // axios.delete('http://localhost:5000/users/favorite/delete/'+decoded.id+'/'+ this.props.favor.rid )
+        // .then(res => {
+        //     console.log(res.data);
+        //     // console.log(res.data);
+        // })
+        // .catch(err =>{
+        //     console.log(err)
+        // })
+    }
+
     render() {
         return (
+
             <div className={style.cardContainer}>
                 <img className={style.thumbnailPic} src={this.state.r_pic} alt='' />
                 <div className={style.infoBox}>
@@ -52,7 +69,7 @@ export default class FavoriteCard extends Component {
                   <div className={style.descriptionBox}>
                     <p className={style.resDescription}>{this.state.r_desciption}</p>
                   </div>
-                  <button className={style.deleteFavButton}>Delete favorite</button>
+                  <button onClick={this.delectFavorite}  className={style.deleteFavButton}>Delete favorite</button>
                 </div>
               </div>
         )
