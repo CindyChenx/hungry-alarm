@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Card from './searcheventCard';
+import Card from '../../components.r/eventCard';
 
-function searchingFor(term) {
-    return function(x) {
-        return x.event_title.toLowerCase().includes()
-    }
-}
 
 export default class NewsEvent extends Component {
 
@@ -41,18 +36,27 @@ export default class NewsEvent extends Component {
 
 
     allEventList() {
-    
-        return this.state.eventsearch.map(currentEvent => {
+        let filteredEvent = this.state.eventsearch.filter(
+            (eventsearch) =>{
+                console.log(eventsearch.event_title.toLowerCase().includes(this.state.search.toLowerCase() != -1))
+                return eventsearch.event_title.toLowerCase().includes(this.state.search.toLowerCase())
+            }
+        )
+        
+        return filteredEvent.map(currentEvent => {
             return <Card key={currentEvent.event_id} event={currentEvent} />;
         })
     }
+
+    
 
     render() {
         
         return (
             <div>
-                <form >
-                <input type="text" value={this.state.search} onChange={this.updateSearch} placeholder="Search.." />
+                
+                <form className="md-form active-cyan active-cyan-2 mb-3">
+                <input type="text" className="form-control" value={this.state.search} onChange={this.updateSearch} placeholder="Search.." />
                 </form>
                 <div>{this.allEventList()}</div>
                 

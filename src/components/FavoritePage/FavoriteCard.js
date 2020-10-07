@@ -7,9 +7,12 @@ import jwt_decode from 'jwt-decode'
 export default class FavoriteCard extends Component {
 
     constructor(props) {
+       
+
         super(props);
         
         this.state = {
+            event_id:'',
             rid: '',
             r_name: '',
             r_phone: '',
@@ -26,6 +29,7 @@ export default class FavoriteCard extends Component {
         axios.get('http://localhost:5000/restaurants/' + this.props.favor.rid)
             .then(response => {
                 this.setState({
+                    event_id:response.data.event_id,
                     rid: response.data.rid,
                     r_name: response.data.r_name,
                     r_phone: response.data.r_phone,
@@ -40,20 +44,7 @@ export default class FavoriteCard extends Component {
             })
     }
 
-    delectFavorite(){
-        const token = localStorage.usertoken
-        const decoded = jwt_decode(token)
-        console.log(decoded.id)
-        
-        // axios.delete('http://localhost:5000/users/favorite/delete/'+decoded.id+'/'+ this.props.favor.rid )
-        // .then(res => {
-        //     console.log(res.data);
-        //     // console.log(res.data);
-        // })
-        // .catch(err =>{
-        //     console.log(err)
-        // })
-    }
+    
 
     render() {
         return (
@@ -69,7 +60,7 @@ export default class FavoriteCard extends Component {
                   <div className={style.descriptionBox}>
                     <p className={style.resDescription}>{this.state.r_desciption}</p>
                   </div>
-                  <button onClick={this.delectFavorite}  className={style.deleteFavButton}>Delete favorite</button>
+                  <button onClick={() =>{ this.props.delectFavorite(this.state.rid)} } className={style.deleteFavButton}>Delete favorite</button>
                 </div>
               </div>
         )
