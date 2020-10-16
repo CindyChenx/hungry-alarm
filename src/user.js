@@ -15,7 +15,7 @@ import UserEdit from "./components/userEdit.customer"
 import Eventdisplay from "./components/EventDispayPage/eventdisplay"
 
 import EventTemplet from "./components/EventDispayPage/eventTemplet"
-
+import restaurantTemplate from "./components/Homepage/restaurantTemplate"
 function User() {
   return (
 
@@ -30,8 +30,11 @@ function User() {
       <Route path="/user/register" component={CreateUser} />
       <Route path="/user/edit/:id" component={UserEdit}/>
       <Route path="/user/allevent" component={Eventdisplay}/>
+      <Route path="/user/seedetail/:id" component = {restaurantTemplate} />
 
       <Route path = "/restaurant/joinevent/:id"  component = {EventTemplet}/>
+      
+     
 
     </Router>
 

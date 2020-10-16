@@ -54,7 +54,7 @@ export default class Favorite extends Component {
         })
 
         this.setState({
-            favorites: this.state.favorites.filter(el => el.rid != rid)
+            favorites: this.state.favorites.filter(el => el.rid !== rid)
         })
     }
 

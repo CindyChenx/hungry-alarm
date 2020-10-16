@@ -50,19 +50,70 @@ export default class FavoriteCard extends Component {
         return (
 
             <div className={style.cardContainer}>
-                <img className={style.thumbnailPic} src={this.state.r_pic} alt='' />
-                <div className={style.infoBox}>
-                  <h1 className={style.title}>{this.state.r_name}</h1>
-                  <h2 className={style.subtitle}>{this.state.r_phone}</h2>
-                  <h2 className={style.subtitle}>
-                    {this.state.r_address} {this.state.r_zip}
-                  </h2>
-                  <div className={style.descriptionBox}>
-                    <p className={style.resDescription}>{this.state.r_desciption}</p>
-                  </div>
-                  <button onClick={() =>{ this.props.delectFavorite(this.state.rid)} } className={style.deleteFavButton}>Delete favorite</button>
-                </div>
-              </div>
+        <img className={style.thumbnailPic} src={this.state.r_pic} alt='' />
+        <div className={style.infoBox}>
+          <div className={style.infoBox__wrapper}>
+            <h1 className={style.title}>{this.state.r_name}</h1>
+            <h2 className={style.subtitle}>
+              <i className='fa fa-phone'></i> {this.state.r_phone}
+            </h2>
+            <h2 className={style.subtitle}>
+              <i className='fa fa-map-marker'></i> {this.state.r_address}{' '}
+              {this.state.r_zip}
+            </h2>
+            <div className={style.descriptionBox}>
+              <p className={style.resDescription}>
+                  {this.state.r_desciption.split().map(function (item) {
+                         item = item.substring(0, 50) + " ... ";
+                         return (
+                             <span key={item}>
+                                 {item}
+                             </span>
+                         )})}
+                         </p>
+            </div>
+          </div>
+​
+          <button
+            onClick={() => {
+              this.props.delectFavorite(this.state.rid);
+            }}
+            className={style.deleteFavButton}
+          >
+            Delete favorite
+          </button>
+        </div>
+      </div>
+
+
+            // {/* <div className={style.cardContainer}>
+            //     <img className={style.thumbnailPic} src={this.state.r_pic} alt='' />
+            //     <div className={style.infoBox}>
+            //         <div className={style.infoBox__wrapper}>
+            //       <h1 className={style.title}>{this.state.r_name}</h1>
+                 
+            //       <i className='fa fa-phone'/><p className={style.subtitle}>{this.state.r_phone}</p>
+                 
+            //       <div style ={{"display": "inline"}}>
+            //       <i className='fa fa-map-marker'></i><p className={style.subtitle}>
+            //         {this.state.r_address} {this.state.r_zip}
+            //       </p>
+            //       </div>
+            //       <div className={style.descriptionBox}>
+            //         {/* <p className={style.resDescription}>
+                        // {this.state.r_desciption.split().map(function (item) {
+                        // item = item.substring(0, 50) + " ... ";
+                        // return (
+                        //     <span key={item}>
+                        //         {item}
+                        //     </span>
+                        // )})}
+                        // </p> */}
+            //       </div>
+            //       <button onClick={() =>{ this.props.delectFavorite(this.state.rid)} } className={style.deleteFavButton}>Delete favorite</button>
+            //       </div>
+            //     </div>
+            //   </div> */}
         )
 
         

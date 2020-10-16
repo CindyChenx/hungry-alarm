@@ -3,7 +3,7 @@ import React from 'react';
 import style from './restaurantCard.module.css'
 import axios from 'axios';
 import jwt_decode from 'jwt-decode'
-
+import { Link } from 'react-router-dom';
 
 
 function RestaurantCard(props) {
@@ -17,38 +17,48 @@ function RestaurantCard(props) {
         }
 
         axios.post('http://localhost:5000/users/favorite/add', addfavorite)
-        .then(res => {
-            console.log(res);
-            // console.log(res.data);
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+            .then(res => {
+                console.log(res);
+                // console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
 
     return (
+        
 
         <div className={style.Card}>
             <div className={style.picturedisplay}>
-                <img style={{ "width": "300px", "height": "200px" }} src={props.user.r_pic} alt={props.user.r_name} />
+                <img style={{ "width": "45vw", "height": "15vh" }} src={props.user.r_pic} alt={props.user.r_name} />
             </div>
             <div className={style.content}>
+                <div style={{ "margin": "3% 5%" }}>
+                    <div>
+                        <h3>{props.user.r_name}</h3>
+                    </div>
+                    <div>
+                        <button onClick={addFavorite} style={{ "float": "right" }}>add favorite</button>
+                    </div>
+                </div>
+                <div style={{ "margin": "3% 0%" }}>
+                    <h6> {props.user.r_phone} |  {props.user.r_address} </h6>
+                </div>
                 <div>
-                    <h1 >{props.user.r_name}</h1> <button onClick={addFavorite} style={{ "float": "right" }}>add favorite</button></div>
-                <h6>{props.user.r_phone}</h6>
-                <h6>{props.user.r_address}</h6>
-                {/* it might crash when then data is null display can not split null */}
-                <p className="card-text" >{props.user.r_desciption.split("\n").map(function (item) {
-                    item = item.substring(0, 180) + " ... ";
+                    {/* it might crash when then data is null display can not split null */}
+                    <p className="card-text" >{props.user.r_desciption.split("\n").map(function (item) {
+                        item = item.substring(0, 100) + " ... ";
 
-                    return (
-                        <span key={item}>
-                            {item}
-                            <a >Read more</a>
-                        </span>
-                    )
-                })}</p>
+                        return (
+                            <span key={item}>
+                                {item}
+                                <Link to={"/user/seedetail/" + props.user.rid}>Read more</Link>
+                            </span>
+                        )
+                    })}</p>
+                </div>
             </div>
             <hr />
         </div>

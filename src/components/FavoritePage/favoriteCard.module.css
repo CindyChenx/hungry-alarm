@@ -21,14 +21,12 @@
   margin-right: 3%;
   margin-left: 3%;
   width: 100%;
-  height: 300px;
+  /* height: 300px; */
 }
 .thumbnailPic {
-  max-width: 100%;
-  max-height: 100%;
-  height: 280px;
-  /* width: 100%;
-  height: 100%; */
+  
+  width: 140px;
+  height: 140px;
   border-radius: 1rem;
 }
 
@@ -37,16 +35,28 @@
   margin-left: 1rem;
 }
 
+.infoBox__wrapper {
+  height: 115px;
+  overflow: hidden;
+}
+
+
+
 .title {
   font-size: 1rem;
   margin: 0;
 }
 
 .subtitle {
-  font-size: 0.65rem;
+  /* font-size: 0.65rem;
   font-weight: 400;
   margin: 0;
-  margin-top: 0.25rem;
+  margin-top: 0.25rem; */
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+
 }
 
 .resDescription {
