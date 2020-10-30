@@ -51,7 +51,6 @@ reserv.post('/add',(req,res) => {
         rating: req.body.rating,
         comment: req.body.comment
       }
-
       Reserv.create(shiftSetup)
     .then(reservation => {
       res.json({ status: reservation.time + "are reserved" })
