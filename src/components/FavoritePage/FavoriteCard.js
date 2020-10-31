@@ -74,12 +74,7 @@ export default class FavoriteCard extends Component {
             </div>
           </div>
 ​
-          <button
-            onClick={() => {
-              this.props.delectFavorite(this.state.rid);
-            }}
-            className={style.deleteFavButton}
-          >
+          <button onClick={() => {this.props.delectFavorite(this.state.rid);}} className={style.deleteFavButton}>
             Delete favorite
           </button>
         </div>

@@ -22,7 +22,7 @@ export default class makereservation extends Component {
             seats: "",
             notes: null,
             rating: null,
-            comment: null
+            comment: ""
         }
     }
 

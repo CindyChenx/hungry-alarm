@@ -23,7 +23,7 @@ export default class customerReservation extends Component {
 
         axios.get('http://localhost:5000/reservation/customer/' + customerID)
             .then(response => {
-                console.log(response.data)
+                // console.log(response.data)
                 const reservation = response.data
                 this.setState({ reservations: reservation });
             })
@@ -37,7 +37,21 @@ export default class customerReservation extends Component {
 
     ReservationList() {
         return this.state.reservations.map(reservation =>{
-            return <Card key ={reservation.rid} reservation = {reservation}/>
+            return <Card deletereservation={this.deletereservation} key ={reservation.rid} reservation = {reservation}/>
+        })
+    }
+
+    deletereservation(res_id){
+       
+        console.log(res_id)
+        
+        axios.delete('http://localhost:5000/reservation/cancel/'+res_id )
+        .then(res => {
+            console.log(res.data);
+            window.location.reload();
+        })
+        .catch(err =>{
+            console.log(err)
         })
     }
 
@@ -47,7 +61,6 @@ export default class customerReservation extends Component {
         return (
 
             <div style={{"margin":"0% 5% 0% 5%"}}>
-                <div>page to display the reservation</div>
                 <div> {this.ReservationList()}</div>
                
             </div>
