@@ -18,6 +18,8 @@ import EventTemplet from "./components/EventDispayPage/eventTemplet"
 import restaurantTemplate from "./components/Homepage/restaurantTemplate"
 import makereservation from './components/reservation/createreservation'
 
+import customerReservation from './components/reservation/customerReservation'
+
 function User() {
   return (
 
@@ -33,8 +35,10 @@ function User() {
       <Route path="/user/edit/:id" component={UserEdit}/>
       <Route path="/user/allevent" component={Eventdisplay}/>
       <Route path="/user/seedetail/:id" component = {restaurantTemplate} />
+      
 
       <Route path="/user/makereservation/:id" component = {makereservation}/>
+      <Route path="/user/reservation" component = {customerReservation}/>
 
       <Route path = "/restaurant/joinevent/:id" component = {EventTemplet}/>
       

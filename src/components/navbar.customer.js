@@ -26,10 +26,14 @@ class Navbar extends Component {
 
         const userLink = (
             <ul className="navbar-nav">
-
                 <li className="nav-item">
                     <Link to="/user/location" className="nav-link">
                         Resturant nearby
+                </Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/user/reservation" className="nav-link">
+                        My reservation
                 </Link>
                 </li>
                 <li className="nav-item">
