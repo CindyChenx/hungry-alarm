@@ -28,37 +28,39 @@ function RestaurantCard(props) {
 
 
     return (
-        
+
 
         <div className={style.Card}>
             <div className={style.picturedisplay}>
-                <img style={{ "width": "45vw", "height": "15vh" }} src={props.user.r_pic} alt={props.user.r_name} />
+                <img style={{ "width": "48vw", "height": "18vh" }} src={props.user.r_pic} alt={props.user.r_name} />
             </div>
             <div className={style.content}>
-                <div style={{ "margin": "3% 5%" }}>
-                    <div>
-                        <h3>{props.user.r_name}</h3>
+                <div>
+                    <div style={{ "margin": "3% 3%" }}>
+                        <h5>{props.user.r_name}</h5>
                     </div>
-                    <div>
-                        <button onClick={addFavorite} style={{ "float": "right" }}>add favorite</button>
+                    <div style={{ "margin": "3% 0%" ,"fontSize": "12px"}}>
+                        <p> {props.user.r_phone} |  {props.user.r_address} </p>
                     </div>
-                </div>
-                <div style={{ "margin": "3% 0%" }}>
-                    <h6> {props.user.r_phone} |  {props.user.r_address} </h6>
+
                 </div>
                 <div>
                     {/* it might crash when then data is null display can not split null */}
-                    <p className="card-text" >{props.user.r_desciption.split("\n").map(function (item) {
-                        item = item.substring(0, 100) + " ... ";
+                    <span className="card-text" >{props.user.r_desciption.split("\n").map(function (item) {
+                        item = item.substring(0, 100);
 
                         return (
                             <span key={item}>
                                 {item}
-                                <Link to={"/user/seedetail/" + props.user.rid}>Read more</Link>
                             </span>
                         )
-                    })}</p>
+
+                    })}</span>
+                    <Link to={"/user/seedetail/" + props.user.rid}>...Read more</Link>
                 </div>
+            </div>
+            <div>
+                <button className={style.favbuttom} onClick={addFavorite} style={{ "float": "right" }}>add favorite</button>
             </div>
             <hr />
         </div>

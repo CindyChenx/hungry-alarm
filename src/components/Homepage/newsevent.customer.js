@@ -12,7 +12,7 @@ export default class NewsEvent extends Component {
 
     //got data from the database
     componentDidMount() {
-        
+
 
         axios.get('http://localhost:5000/restaurants/eventdispaly')
             .then(response => {
@@ -27,14 +27,16 @@ export default class NewsEvent extends Component {
 
     companiesList() {
         return this.state.restaurants.map(currentrestaurant => {
-            return <Card key={currentrestaurant.rid} user={currentrestaurant} />;
+            if (currentrestaurant.rid !== null) {
+                return <Card key={currentrestaurant.rid} user={currentrestaurant} />;
+            }
         })
     }
 
     render() {
         return (
             <div>
-                {this.companiesList()}           
+                {this.companiesList()}
             </div>
         );
     }

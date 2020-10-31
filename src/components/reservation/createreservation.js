@@ -3,6 +3,7 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import { Link } from 'react-router-dom';
 
 
 export default class makereservation extends Component {
@@ -22,7 +23,9 @@ export default class makereservation extends Component {
             seats: "",
             notes: null,
             rating: null,
-            comment: ""
+            comment: "",
+            r_pic:'',
+            r_name:''
         }
     }
 
@@ -33,6 +36,15 @@ export default class makereservation extends Component {
         this.setState({
             cid: decoded.id,
             rid: this.props.match.params.id,
+        })
+
+        axios.get('http://localhost:5000/restaurants/' + this.props.match.params.id)
+        .then(response => {
+            // console.log(response.data)
+            const picture = response.data.r_pic
+            const name = response.data.r_name
+            this.setState({ r_pic: picture, r_name: name })
+
         })
     }
 
@@ -89,9 +101,9 @@ export default class makereservation extends Component {
     render() {
 
         return (
-            <div className="container">
-
-
+            <div >
+            <div style={{"backgroundPosition": "center","backgroundRepeat": "no-repeat","width":"100vw","height":"30vh","backgroundImage": `url(${this.state.r_pic})`}}></div>
+                <h5>{this.state.r_name}</h5>
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <label >reservation date</label>
@@ -109,10 +121,10 @@ export default class makereservation extends Component {
                         <label >reservation set time</label>
                         <br/>
                         <input type="time" onChange={this.onChangeTime} required></input>
-                    </div>  <div class="form-row align-items-center">
-                        <div class="col-auto my-1" onChange={this.onChangeSeat}>
-                            <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    </div>  <div className="form-row align-items-center">
+                        <div className="col-auto my-1" onChange={this.onChangeSeat}>
+                            <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Preference</label>
+                            <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -121,13 +133,12 @@ export default class makereservation extends Component {
                             </select>
                         </div>
                         <div className="form-group">
-                            <input type="submit" value="make reservation"
+                            <input style={{"margin":"10px"}} type="submit" value="make reservation"
                                 className="btn btn-primary" />
+                            <Link style={{"margin":"10px"}} className="btn btn-primary" to={"/home"}>cancle</Link>
                         </div>
                     </div>
-
-
-
+                    
 
                 </form>
             </div>

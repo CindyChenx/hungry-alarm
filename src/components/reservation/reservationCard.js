@@ -108,9 +108,9 @@ export default class reservationCard extends Component {
 
             return (
 
-                <div className="card" style={{ "width": "100%", "margin-bottom": "5%" }} >
+                <div className="card" style={{ "width": "100%", "marginBottom": "5%" }} >
                     <img className="card-img-top" src={this.state.r_pic} alt="" />
-                    <div class="">
+                    <div className="">
                         <h5>{this.state.r_name}  {ratingdisplay}</h5>
                         
                         <p className={style.reservationtext}>reservation date: {this.state.date}</p>
