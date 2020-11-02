@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components.r/navbar.restaurant"
 
-import RestaurantDisplay from "./components/newsevent.customer"
+import RestaurantDisplay from "./components/Homepage/newsevent.customer"
 // import RestaurantLogin from "./components.r/loginpage.restaurant"
 import RestaurantProfile from "./components.r/res_system.restaurant"
 import CreateRestaurant from "./components.r/createRestaurant.restaurant"
@@ -18,6 +18,7 @@ import ChangePassword from "./components.r/passwordreset.restaurant"
 import EventCreate from "./components.r/createEvent.restaurant"
 import EventTemplet from "./components.r/eventTemplet"
 import EventEdit from "./components.r/eventEditpage"
+
 
 function Restaurant() {
     return (

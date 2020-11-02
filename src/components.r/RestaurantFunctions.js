@@ -18,6 +18,7 @@ export const register = newResturant => {
     })
 }
 
+
 export const login = resturant => {
   return axios
     .post('http://localhost:5000/restaurants/login', {

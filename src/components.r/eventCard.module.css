@@ -6,13 +6,13 @@
 .eventImg{
     margin-top: 3%;
     width: 90%; 
-    height: 350px;
+    height: 200px;
     border-radius: 5%;
 }
 .eventName{
     color: aliceblue;
     position:absolute;
-    font-size: 70px;
+    font-size: 40px;
     top: 45%;
     bottom: 55%;
     right :8%;
@@ -21,7 +21,7 @@
 .eventDate{
     color: pink;
     position:absolute;
-    font-size: 35px;
+    font-size: 20px;
     top: 70%;
     bottom: 30%;
     right :8%;
@@ -29,7 +29,7 @@
 .eventTime{
     color:  pink;
     position:absolute;
-    font-size: 35px;
+    font-size: 20px;
     top: 80%;
     bottom: 20%;
     right :8%;

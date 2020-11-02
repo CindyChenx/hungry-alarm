@@ -5,13 +5,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar.customer"
 
-import RestaurantDisplya from "./components/newsevent.customer"
+import RestaurantDisplya from "./components/Homepage/newsevent.customer"
 import LocationMap from "./components/map.customer"
-import Favorite from "./components/favorite.customer"
+import Favorite from "./components/FavoritePage/favorite.customer"
 import UserSystem from "./components/usersystem.customer"
 // import UserLogin from "./components/CustomerLoginpage/loginpage.customer"
 import CreateUser from "./components/createuser.customer"
 import UserEdit from "./components/userEdit.customer"
+import Eventdisplay from "./components/EventDispayPage/eventdisplay"
+
+import EventTemplet from "./components/EventDispayPage/eventTemplet"
+import restaurantTemplate from "./components/Homepage/restaurantTemplate"
+import makereservation from './components/reservation/createreservation'
+
+import customerReservation from './components/reservation/customerReservation'
 
 function User() {
   return (
@@ -26,6 +33,16 @@ function User() {
       {/* <Route path="/user/login" component={UserLogin} /> */}
       <Route path="/user/register" component={CreateUser} />
       <Route path="/user/edit/:id" component={UserEdit}/>
+      <Route path="/user/allevent" component={Eventdisplay}/>
+      <Route path="/user/seedetail/:id" component = {restaurantTemplate} />
+      
+
+      <Route path="/user/makereservation/:id" component = {makereservation}/>
+      <Route path="/user/reservation" component = {customerReservation}/>
+
+      <Route path = "/restaurant/joinevent/:id" component = {EventTemplet}/>
+      
+     
 
     </Router>
 

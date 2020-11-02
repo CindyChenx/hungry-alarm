@@ -23,7 +23,7 @@ module.exports = db.sequelize.define(
         allowNull: false
       },
       time:{
-        type:Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
       },
       seats:{

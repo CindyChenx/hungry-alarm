@@ -1,0 +1,21 @@
+.picturedisplay{
+    float: left;
+    margin-right: 10px;
+}
+
+.content{
+    height: 30%;
+    
+}
+
+.Card{
+    border: gray;
+    border-radius: 10;
+    margin: 3%;
+}
+
+.favbuttom{
+    border: none;
+  font-size: 0.7rem;
+  background: #d5f7e2;
+}

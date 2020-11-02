@@ -1,140 +1,126 @@
 /* css for sersystem.customer.js */
+
 .headerContainer {
-    display: flex;
-    flex-direction: row;
-    height: 300px;
-    background-color: #d5f7e2;
-  }
-  
-  .profilePhotoContainer {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profilePhoto {
-    width: 200px;
-    height: 200px;
-    border-radius: 2rem;
-    object-fit: cover;
-  }
-  
-  .userInfoContainer {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .button {
-    padding: 0rem 0rem 0.5rem 0rem;
-    color: blue;
-    border: none;
-    background: none;
-  }
-  
-  .mainContainer {
-    padding: 1rem 3rem 1rem 3rem;
-  }
-  
-  .preferencesContainer {
-    margin: 1rem 0rem 0rem 0rem;
-  }
-  
-  .heading1 {
-    font-size: 3rem;
-    margin: 0rem 1rem 0.5rem 0rem;
-    font-weight: bold;
-  }
-  
-  .heading2 {
-    font-size: x-large;
-    margin: 0rem 1rem 0.5rem 0rem;
-    font-weight: bold;
-  }
-  
-  .heading3 {
-    margin: 0.5rem 1rem 0.25rem 0rem;
-    font-size: larger;
-    font-weight: bold;
-  }
-  
-  .rowContainer {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .tag {
-    margin-right: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: #d5f7e2;
-    border-radius: 5rem;
-  }
-  
-  .addTagButton {
-    margin-right: 0.5rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: #d5f7e2;
-    border-radius: 5rem;
-    border: none;
-    font-size: larger;
-  }
-  
-  .couponContainer {
-    margin: 2rem 0rem 0rem 0rem;
-  }
-  
-  .coupons {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .coupon {
-    margin: 0rem 0.5rem 0.5rem 0rem;
-    height: 100px;
-    width: 200px;
-    background-color: #d8d8d8;
-    border-radius: 1rem;
-  }
-  
-  .favoriteContainer {
-    margin: 2rem 0rem 0rem 0rem;
-  }
-  
-  .favorites {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .favorite {
-    margin: 0rem 0.5rem 0.5rem 0rem;
-    height: 100px;
-    width: 200px;
-    background-color: #d8d8d8;
-    border-radius: 1rem;
-  }
-  
-  .footerContainer {
-    margin: 3rem 0rem 0rem 0rem;
-    padding: 0rem 3rem 0rem 3rem;
-    background-color: #d8d8d8;
-  }
-  
-  .squareButton {
-    margin: 1rem 2rem 1rem 2rem;
-    height: 120px;
-    width: 120px;
-    background: none;
-    border: none;
-  }
-  
-  .iconButton {
-    margin: 0rem 0rem 0.5rem 0rem;
-    height: 50px;
-  }
-  
-  .squareButton p {
-    font-size: large;
-  }
-  
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 200px;
+  column-gap: 1rem;
+  padding: 0 2rem;
+  background-color: #d5f7e2;
+}
+
+.profilePhotoContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.userInfoContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.button {
+  padding: 0rem 0rem 0.5rem 0rem;
+  color: blue;
+  border: none;
+  background: none;
+}
+
+.mainContainer {
+  padding: 1rem 2rem;
+}
+
+.preferencesContainer {
+  margin: 1rem 0rem 0rem 0rem;
+}
+
+.heading1 {
+  font-size: 1.5rem;
+  margin: 0rem 1rem 0.5rem 0rem;
+  font-weight: bold;
+}
+
+.heading2 {
+  font-size: 1.4rem;
+  margin: 0rem 1rem 0.5rem 0rem;
+  font-weight: bold;
+}
+
+.heading3 {
+  margin: 0.5rem 1rem 0.25rem 0rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: #d5f7e2;
+  border-radius: 5rem;
+}
+
+.addTagButton {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: #d5f7e2;
+  border-radius: 5rem;
+  border: none;
+  font-size: larger;
+}
+
+.couponContainer {
+  margin: 2rem 0rem 0rem 0rem;
+}
+
+.coupons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.coupon {
+  margin: 0rem 0.5rem 0.5rem 0rem;
+  height: 100px;
+  width: 200px;
+  background-color: #d8d8d8;
+  border-radius: 1rem;
+}
+
+.footerContainer {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #d8d8d8;
+}
+
+.squareButton {
+  background: none;
+  border: none;
+  width: 100px;
+  text-align: center;
+}
+
+.iconButton {
+  height: 40px;
+}
+
+.squareButton p {
+  font-size: 1rem;
+}
