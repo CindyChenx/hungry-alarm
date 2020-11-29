@@ -20,15 +20,15 @@ module.exports = db.sequelize.define(
       },
       date:{
         type:Sequelize.DATEONLY,
-        allowNull: false
+        allowNull: true
       },
       time:{
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       seats:{
         type:Sequelize.INTEGER,
-        allowNull: false
+      
       },
       notes:{
         type:Sequelize.STRING

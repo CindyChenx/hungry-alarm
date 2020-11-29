@@ -114,7 +114,7 @@ reserv.get('/restaurant/:rid', function (req, res, next) {
 
 // TODO: change reservation using customer id and resturant id 
 reserv.put('/update/:res_id', function (req, res, next) {
-    if (!req.body.rid && !req.body.cid){
+    if (!req.body.rid){
       res.status(400)
       res.json({
         error: "reservation dose not exits"

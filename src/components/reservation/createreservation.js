@@ -85,13 +85,14 @@ export default class makereservation extends Component {
             .post('http://localhost:5000/reservation/add', makereservation)
             .then(response => {
                 console.log('booking success')
+                window.location = "/user/reservation"
             })
             .catch(err => {
                 console.log(err.response.data.error)
                
             })
 
-        //window.location = "/"
+        
 
         //  TODO : send data to the database
 
@@ -118,12 +119,12 @@ export default class makereservation extends Component {
                         />
                     </div>
                     <div>
-                        <label >reservation set time</label>
+                        <label >reservation time</label>
                         <br/>
                         <input type="time" onChange={this.onChangeTime} required></input>
                     </div>  <div className="form-row align-items-center">
                         <div className="col-auto my-1" onChange={this.onChangeSeat}>
-                            <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Preference</label>
+                            <label className="mr-sm-2" htmlFor="inlineFormCustomSelect">Seat</label>
                             <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                 <option selected>Choose...</option>
                                 <option value="1">1</option>
@@ -135,7 +136,7 @@ export default class makereservation extends Component {
                         <div className="form-group">
                             <input style={{"margin":"10px"}} type="submit" value="make reservation"
                                 className="btn btn-primary" />
-                            <Link style={{"margin":"10px"}} className="btn btn-primary" to={"/home"}>cancle</Link>
+                            <Link style={{"margin":"10px"}} className="btn btn-primary" to={"/home"}>cancel</Link>
                         </div>
                     </div>
                     

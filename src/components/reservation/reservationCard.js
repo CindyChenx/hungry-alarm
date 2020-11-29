@@ -115,9 +115,9 @@ export default class reservationCard extends Component {
                         
                         <p className={style.reservationtext}>reservation date: {this.state.date}</p>
                         <p className={style.reservationtext}>reservation time: {this.state.time}</p>
-                        <p className={style.reservationtext}>appointment seat: {this.state.seats}</p>
-                        <button onClick={() => { this.props.deletereservation(this.state.res_id); }} className="btn btn-primary" >Cancel Reservation</button>
-                        <button className="btn btn-primary" style={{ "marginLeft": "12px" }} onClick={(e) => this.setState({ isOpen: true })}>commends</button>
+                        <p className={style.reservationtext}>reserved seats: {this.state.seats}</p>
+                        <button onClick={() => { this.props.deletereservation(this.state.res_id, this.state.rid); }} className="btn btn-primary" >Cancel Reservation</button>
+                        <button className="btn btn-primary" style={{ "marginLeft": "12px" }} onClick={(e) => this.setState({ isOpen: true })}>comment</button>
                         <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
                             <h5>{this.state.r_name}</h5>
                             <form onSubmit={this.onSubmit}>
