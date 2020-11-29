@@ -90,6 +90,7 @@ export default class reservationCard extends Component {
                 halfIcon={<i className="fa fa-star-half-alt"></i>}
                 fullIcon={<i className="fa fa-star"></i>}
                 activeColor="#ffd700"
+                edit={false}
             />
         )
 

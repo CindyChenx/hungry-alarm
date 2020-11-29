@@ -46,12 +46,12 @@ export default class customerReservation extends Component {
 
         console.log(res_id)
         console.log(rid)
-
+        // here might have a bug in the furture since the date and time should be cancal and release for other booking
         const reservationupdate = {
             cid: 0,
             rid: rid,
-            date: "000",
-            time: "000",
+            // date: "000",
+            // time: "000",
             seats: 0,
             notes: null,
             rating: null,
