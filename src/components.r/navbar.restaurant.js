@@ -35,6 +35,11 @@ class Navbar extends Component {
                 </Link>
                 </li>
                 <li className="nav-item">
+                    <Link to="/restaurant/appointment" className="nav-link">
+                        Appointment
+                </Link>
+                </li>
+                <li className="nav-item">
                     <Link to="/restaurant/event" className="nav-link">
                         Create Event
                 </Link>

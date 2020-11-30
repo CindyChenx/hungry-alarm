@@ -18,6 +18,7 @@ import ChangePassword from "./components.r/passwordreset.restaurant"
 import EventCreate from "./components.r/createEvent.restaurant"
 import EventTemplet from "./components.r/eventTemplet"
 import EventEdit from "./components.r/eventEditpage"
+import AppointmentDetail from "./components.r/appoinment"
 
 
 function Restaurant() {
@@ -41,6 +42,7 @@ function Restaurant() {
            <Route path = "/restaurant/joinevent/:id"  component = {EventTemplet}/>
            <Route path = "/restaurant/eventedit/:id"  component = {EventEdit}/>
           
+           <Route path = "/restaurant/appointment"  component = {AppointmentDetail}/>
            
          </Router>
         
