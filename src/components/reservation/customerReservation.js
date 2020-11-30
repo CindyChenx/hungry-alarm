@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import Card from './reservationCard';
+import HistoryCard from './historyReservCard'
 
 
 
@@ -37,15 +38,37 @@ export default class customerReservation extends Component {
 
 
     ReservationList() {
+        var today = new Date();
+        // console.log(today.getTime())
+
         return this.state.reservations.map(reservation => {
-            return <Card deletereservation={this.deletereservation} key={reservation.rid} reservation={reservation} />
+            var reservday = new Date(reservation.date);
+            // console.log(reservday.getTime())
+            if (today < reservday) {
+                return <Card deletereservation={this.deletereservation} key={reservation.rid} reservation={reservation} />
+            }
+
         })
     }
 
-    deletereservation(res_id,rid) {
+    HistoryList() {
+        var today = new Date();
+        // console.log(today.getTime())
 
-        console.log(res_id)
-        console.log(rid)
+        return this.state.reservations.map(reservation => {
+            var reservday = new Date(reservation.date);
+            // console.log(reservday.getTime())
+            if (today > reservday) {
+                return <HistoryCard key={reservation.rid} reservation={reservation} />
+            }
+
+        })
+    }
+
+    deletereservation(res_id, rid) {
+
+        // console.log(res_id)
+        // console.log(rid)
         // here might have a bug in the furture since the date and time should be cancal and release for other booking
         const reservationupdate = {
             cid: 0,
@@ -57,7 +80,7 @@ export default class customerReservation extends Component {
             rating: null,
             comment: null,
         }
-        axios.put('http://localhost:5000/reservation/update/' + res_id,reservationupdate)
+        axios.put('http://localhost:5000/reservation/update/' + res_id, reservationupdate)
             .then(res => {
                 console.log(res.data)
                 window.location.reload();
@@ -79,6 +102,20 @@ export default class customerReservation extends Component {
 
             <div style={{ "margin": "0% 5% 0% 5%" }}>
                 <div> {this.ReservationList()}</div>
+                <h5>Booking history</h5>
+                <table className="table">
+                    <thead className="thead-light">
+                        <tr>
+                            <th style={{ fontSize: "10px" }}>Restaurant</th>
+                            <th style={{ fontSize: "10px" }}>visited date</th>
+                            <th style={{ fontSize: "10px" }}>rating</th>
+                            <th style={{ fontSize: "10px" }}>comment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.HistoryList()}
+                    </tbody>
+                </table>
 
             </div>
         )

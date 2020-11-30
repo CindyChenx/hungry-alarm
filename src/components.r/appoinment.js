@@ -64,8 +64,7 @@ export default class AppointmentDetail extends Component {
     render() {
         return (
             <div style={{ "marginTop": "0" }}>
-                <p>reservation number:{this.state.customer}</p>
-                <p>reservation cancel:{this.state.customer-this.state.notcancelcount}</p>
+                <h3 style={{marginLeft:"10px"}}>Visiting record</h3>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
@@ -80,7 +79,11 @@ export default class AppointmentDetail extends Component {
                     </tbody>
 
                 </table>
-
+                <div style={{margin:"10px"}}>
+                <p>Effective reservations: {this.state.notcancelcount}</p>
+                <p>Registered reservations:{this.state.customer}</p>
+                <p>Canceled reservations:{this.state.customer-this.state.notcancelcount}</p>
+                </div>
             </div>
         )
     }
